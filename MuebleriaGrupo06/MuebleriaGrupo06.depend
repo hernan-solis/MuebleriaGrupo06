@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1749003230 source:c:\users\hernán\documents\proyectos\c++\progra 2\muebleriagrupo06\muebleriagrupo06\main.cpp
+	<iostream>
+	"Proveedor.h"
+
+1749003228 source:c:\users\hernán\documents\proyectos\c++\progra 2\muebleriagrupo06\muebleriagrupo06\proveedor.cpp
+	"Proveedor.h"
+	<iostream>
+
+1749002645 c:\users\hernán\documents\proyectos\c++\progra 2\muebleriagrupo06\muebleriagrupo06\proveedor.h
+	<string>
+
