@@ -1,11 +1,13 @@
 #pragma once
 #include <string>
+#include "Proveedor.h"
+#include "Fecha.h"
 
 class Compra {
 private:
     int _idCompra;
     int _idProveedor;
-    Fecha _fechaCompra; // no olvidar la clase y controlador de FECHA :)
+    Fecha _fechaCompra;
     bool _status;
 
 public:

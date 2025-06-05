@@ -32,6 +32,15 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="Compra.cpp" />
+		<Unit filename="Compra.h" />
+		<Unit filename="Fecha.cpp" />
+		<Unit filename="Fecha.h" />
+		<Unit filename="MuebleriaGrupo06.cbp" />
+		<Unit filename="MuebleriaGrupo06.depend" />
+		<Unit filename="MuebleriaGrupo06.layout" />
+		<Unit filename="Producto.cpp" />
+		<Unit filename="Producto.h" />
 		<Unit filename="Proveedor.cpp" />
 		<Unit filename="Proveedor.h" />
 		<Unit filename="main.cpp" />

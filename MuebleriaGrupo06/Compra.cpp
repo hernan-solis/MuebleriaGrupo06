@@ -1,10 +1,11 @@
 #include <iostream>
 #include "Compra.h"
+#include "Fecha.h"
 
 Compra::Compra() {
     _idCompra = -1;
     _idProveedor = -1;
-    _fechaCompra = // completar con el controlador de FECHA
+    _fechaCompra = Fecha();
     _status = true;
 }
 
@@ -50,6 +51,6 @@ void Compra::setStatus(bool status) {
 std::string Compra::toCSV() {
     return std::to_string(_idCompra) + "," +
            std::to_string(_idProveedor) + "," +
-           _fechaCompra.toCSV() + "," +
+           _fechaCompra.toString() + "," +
            std::to_string(_status);
 }
