@@ -17,7 +17,6 @@ int main()
 
     //Pruebas internas
     Proveedor p1;
-
     cout << "Proveedor standar" << endl;
     cout << p1.toCSV() << endl << endl;
 
@@ -25,8 +24,9 @@ int main()
     cout << "Compra standar" << endl;
     cout << c1.toCSV() << endl << endl;
 
+    Producto pro1;
     cout << "Producto standar" << endl;
-    cout << p1.toCSV() << endl << endl;
+    cout << pro1.toCSV() << endl << endl;
 
     return 0;
 }
