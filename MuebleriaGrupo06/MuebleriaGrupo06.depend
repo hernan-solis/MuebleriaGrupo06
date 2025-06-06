@@ -1,9 +1,10 @@
 # depslib dependency file v1.0
-1749166087 source:c:\users\hernán\documents\proyectos\c++\progra 2\muebleriagrupo06\muebleriagrupo06\main.cpp
+1749169932 source:c:\users\hernán\documents\proyectos\c++\progra 2\muebleriagrupo06\muebleriagrupo06\main.cpp
 	<iostream>
 	"Proveedor.h"
 	"Producto.h"
 	"Compra.h"
+	"ControladorProveedor.h"
 	"Fecha.h"
 
 1749003228 source:c:\users\hernán\documents\proyectos\c++\progra 2\muebleriagrupo06\muebleriagrupo06\proveedor.cpp
@@ -35,4 +36,8 @@
 	<iostream>
 	"Compra.h"
 	"Fecha.h"
+
+1749169976 c:\users\hernán\documents\proyectos\c++\progra 2\muebleriagrupo06\muebleriagrupo06\controladorproveedor.h
+	<string>
+	"Proveedor.h"
 

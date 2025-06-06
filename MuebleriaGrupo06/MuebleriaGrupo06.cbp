@@ -34,6 +34,8 @@
 		</Compiler>
 		<Unit filename="Compra.cpp" />
 		<Unit filename="Compra.h" />
+		<Unit filename="ControladorProveedor.cpp" />
+		<Unit filename="ControladorProveedor.h" />
 		<Unit filename="Fecha.cpp" />
 		<Unit filename="Fecha.h" />
 		<Unit filename="MuebleriaGrupo06.cbp" />

@@ -2,6 +2,7 @@
 #include "Proveedor.h"
 #include "Producto.h"
 #include "Compra.h"
+#include "ControladorProveedor.h"
 #include "Fecha.h"
 
 //using namespace std; habilitar solo si es utilizado
