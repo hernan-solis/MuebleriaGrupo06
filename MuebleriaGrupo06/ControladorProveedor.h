@@ -9,7 +9,7 @@ class ControladorProveedor{
     public:
         ControladorProveedor(std::string nombreArchivo);
 
-        // "Abre el archivo binario .dat para agregar contenido al final. Si no existe el dat, lo crea"
+        // "Abre el archivo binario .dat para agregar contenido al final. Si no existe el dat, lo crea. Autoasigna id"
         bool Guardar(Proveedor proveedor);
 
 
@@ -29,7 +29,7 @@ class ControladorProveedor{
         int CantidadRegistros();
 
 
-        //GUARDA TODOS LOS REGISTROS FISICOS EN UN ARRAY QUE LE PASEMOS PARA LUEGO TRABAJARLO
+        //GUARDA TODOS LOS REGISTROS FISICOS EN UN ARRAY QUE LE PASEMOS PARA LUEGO TRABAJARLO, ACTIVOS O NO, TODOS
         void Leer(int cantidadRegistros, Proveedor *vector);
 
 

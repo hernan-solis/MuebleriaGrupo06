@@ -1,22 +1,23 @@
 #include "Proveedor.h"
 #include <iostream>
+#include <cstring>
 
 Proveedor::Proveedor(){
-    _idProveedor = -1;
-    _cuitCuil = "N/D";
-    _nombre = "N/D";
-    _telefono = "N/D";
-    _direccion = "N/D";
+    _idProveedor = 0;
+    strcpy(_cuitCuil,"00-00000000-0");
+    strcpy(_nombre,"N/D");
+    strcpy(_telefono,"N/D");
+    strcpy(_direccion,"N/D");
     _status = true;
 
 }
 
 Proveedor::Proveedor(int idProveedor, std::string cuitCuil, std::string nombre, std::string telefono, std::string direccion, bool status){
     _idProveedor = idProveedor;
-    _cuitCuil = cuitCuil;
-    _nombre = nombre;
-    _telefono = telefono;
-    _direccion = direccion;
+    strcpy(_cuitCuil,cuitCuil.c_str());
+    strcpy(_nombre,nombre.c_str());
+    strcpy(_telefono,telefono.c_str());
+    strcpy(_direccion,direccion.c_str());
     _status = status;
 }
 
@@ -51,19 +52,19 @@ void Proveedor::setIdProveedor(int idProveedor){
 }
 
 void Proveedor::setCuitCuil(std::string cuitCuil){
-    _cuitCuil = cuitCuil;
+    strcpy(_cuitCuil,cuitCuil.c_str());
 }
 
 void Proveedor::setNombre(std::string nombre){
-    _nombre = nombre;
+    strcpy(_nombre,nombre.c_str());
 }
 
 void Proveedor::setTelefono(std::string telefono){
-    _telefono = telefono;
+    strcpy(_telefono,telefono.c_str());
 }
 
 void Proveedor::setDireccion(std::string direccion){
-    _direccion = direccion;
+    strcpy(_direccion,direccion.c_str());
 }
 
 void Proveedor::setStatus(bool status){

@@ -6,8 +6,31 @@ ControladorProveedor::ControladorProveedor(std::string nombreArchivo){
 }
 
 
-// "Abre el archivo binario .dat para agregar contenido al final. Si no existe el dat, lo crea"
+// "Abre el archivo binario .dat para agregar contenido al final. Si no existe el dat, lo crea. Autoasigna id"
 bool ControladorProveedor::Guardar(Proveedor proveedor){
+
+    //busca el id mas grande para luego sumarle 1 al que se va a guardar
+
+    int cantidad = CantidadRegistros();
+
+    int maxId = 0;
+
+    if(cantidad > 0){
+        Proveedor *lista = new Proveedor[cantidad];
+        Leer(cantidad, lista);
+
+        for(int i = 0; i < cantidad; i++){
+            if(lista[i].getIdProveedor() > maxId){
+                maxId = lista[i].getIdProveedor();
+            }
+        }
+        delete[] lista;
+    }
+
+    // Setea el nuevo ID
+    proveedor.setIdProveedor(maxId + 1);
+
+
     FILE *pArchivo = fopen(_nombreArchivo.c_str(), "ab");
     if(pArchivo == NULL){
         return false;
@@ -78,7 +101,7 @@ int ControladorProveedor::CantidadRegistros(){
 }
 
 
-//GUARDA TODOS LOS REGISTROS EN UN ARRAY QUE LE PASEMOS PARA LUEGO TRABAJARLO
+//GUARDA TODOS LOS REGISTROS EN UN ARRAY QUE LE PASEMOS PARA LUEGO TRABAJARLO, ACTIVOS O NO, TODOS
 void ControladorProveedor::Leer(int cantidadRegistros, Proveedor *vector){
     FILE *pArchivo = fopen(_nombreArchivo.c_str(), "rb");
     if(pArchivo == NULL){
@@ -102,13 +125,15 @@ bool ControladorProveedor::BorrarTodos() {
 }
 
 
-// ELIMINACION FISICA DE 1 REGISTRO
-bool EliminarFisico(int idProveedor){
-
-}
-
-
 // ELIMINACION LOGICA DE 1 REGISTRO
-bool Eliminar(int idProveedor){
-
+bool ControladorProveedor::Eliminar(int idProveedor){
+    int posicion = Buscar(idProveedor);
+    if(posicion == -1){
+        return false;
+    }else{
+        Proveedor prov = Leer(posicion);
+        prov.setStatus(false);
+        Guardar(prov,posicion);
+        return true;
+    }
 }

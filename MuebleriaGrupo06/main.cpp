@@ -12,6 +12,8 @@ using namespace std;
 
 int main()
 {
+
+
     ControladorProveedor cp1("proveedores.dat");
 
 
@@ -58,6 +60,10 @@ int main()
      int cantidad = cp1.CantidadRegistros();
 
      Proveedor *listaProveedores = new Proveedor[cantidad];
+
+     cout << "Prueba eliminacion logica" << endl << endl;
+
+     cp1.Eliminar(1);
 
      cp1.Leer(cantidad,listaProveedores);
 
