@@ -1,16 +1,18 @@
 # depslib dependency file v1.0
-1749166087 source:c:\users\hernán\documents\proyectos\c++\progra 2\muebleriagrupo06\muebleriagrupo06\main.cpp
+1749517979 source:c:\users\hernán\documents\proyectos\c++\progra 2\muebleriagrupo06\muebleriagrupo06\main.cpp
 	<iostream>
 	"Proveedor.h"
 	"Producto.h"
 	"Compra.h"
+	"ControladorProveedor.h"
 	"Fecha.h"
 
-1749003228 source:c:\users\hernán\documents\proyectos\c++\progra 2\muebleriagrupo06\muebleriagrupo06\proveedor.cpp
+1749516887 source:c:\users\hernán\documents\proyectos\c++\progra 2\muebleriagrupo06\muebleriagrupo06\proveedor.cpp
 	"Proveedor.h"
 	<iostream>
+	<cstring>
 
-1749002645 c:\users\hernán\documents\proyectos\c++\progra 2\muebleriagrupo06\muebleriagrupo06\proveedor.h
+1749515889 c:\users\hernán\documents\proyectos\c++\progra 2\muebleriagrupo06\muebleriagrupo06\proveedor.h
 	<string>
 
 1749165330 source:c:\users\hernán\documents\proyectos\c++\progra 2\muebleriagrupo06\muebleriagrupo06\producto.cpp
@@ -35,4 +37,12 @@
 	<iostream>
 	"Compra.h"
 	"Fecha.h"
+
+1749517111 c:\users\hernán\documents\proyectos\c++\progra 2\muebleriagrupo06\muebleriagrupo06\controladorproveedor.h
+	<string>
+	"Proveedor.h"
+
+1749517922 source:c:\users\hernán\documents\proyectos\c++\progra 2\muebleriagrupo06\muebleriagrupo06\controladorproveedor.cpp
+	"Fecha.h"
+	"ControladorProveedor.h"
 

@@ -5,7 +5,10 @@
 class Proveedor{
     private:
         int _idProveedor;
-        std::string _cuitCuil, _nombre, _telefono, _direccion;
+        char _cuitCuil[14];
+        char _nombre[51];
+        char _telefono[21];
+        char _direccion[101];
         bool _status;
 
     public:
