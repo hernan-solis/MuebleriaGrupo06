@@ -46,3 +46,56 @@
 	"Fecha.h"
 	"ControladorProveedor.h"
 
+1749603111 source:c:\users\nburg\desktop\utn\programacion ii\tp final\muebleriagrupo06\muebleriagrupo06\compra.cpp
+	<iostream>
+	"Compra.h"
+	"Fecha.h"
+
+1749603111 c:\users\nburg\desktop\utn\programacion ii\tp final\muebleriagrupo06\muebleriagrupo06\compra.h
+	<string>
+	"Proveedor.h"
+	"Fecha.h"
+
+1749603111 c:\users\nburg\desktop\utn\programacion ii\tp final\muebleriagrupo06\muebleriagrupo06\proveedor.h
+	<string>
+
+1749164059 c:\users\nburg\desktop\utn\programacion ii\tp final\muebleriagrupo06\muebleriagrupo06\fecha.h
+	<string>
+
+1749603111 source:c:\users\nburg\desktop\utn\programacion ii\tp final\muebleriagrupo06\muebleriagrupo06\controladorproveedor.cpp
+	"Fecha.h"
+	"ControladorProveedor.h"
+
+1749603111 c:\users\nburg\desktop\utn\programacion ii\tp final\muebleriagrupo06\muebleriagrupo06\controladorproveedor.h
+	<string>
+	"Proveedor.h"
+
+1749164059 source:c:\users\nburg\desktop\utn\programacion ii\tp final\muebleriagrupo06\muebleriagrupo06\fecha.cpp
+	"Fecha.h"
+
+1749656274 source:c:\users\nburg\desktop\utn\programacion ii\tp final\muebleriagrupo06\muebleriagrupo06\main.cpp
+	<iostream>
+	"ControladorProveedor.h"
+	"Menu.h"
+
+1749163668 c:\users\nburg\desktop\utn\programacion ii\tp final\muebleriagrupo06\muebleriagrupo06\producto.h
+	<string>
+
+1749163668 source:c:\users\nburg\desktop\utn\programacion ii\tp final\muebleriagrupo06\muebleriagrupo06\producto.cpp
+	"Producto.h"
+	<string>
+
+1749603111 source:c:\users\nburg\desktop\utn\programacion ii\tp final\muebleriagrupo06\muebleriagrupo06\proveedor.cpp
+	"Proveedor.h"
+	<iostream>
+	<cstring>
+
+1749603963 c:\users\nburg\desktop\utn\programacion ii\tp final\muebleriagrupo06\muebleriagrupo06\menu.h
+	"ControladorProveedor.h"
+
+1749604862 source:c:\users\nburg\desktop\utn\programacion ii\tp final\muebleriagrupo06\muebleriagrupo06\menu.cpp
+	<iostream>
+	<string>
+	"Menu.h"
+	"Proveedor.h"
+
