@@ -38,6 +38,8 @@
 		<Unit filename="ControladorProveedor.h" />
 		<Unit filename="Fecha.cpp" />
 		<Unit filename="Fecha.h" />
+		<Unit filename="Menu.cpp" />
+		<Unit filename="Menu.h" />
 		<Unit filename="MuebleriaGrupo06.cbp" />
 		<Unit filename="MuebleriaGrupo06.depend" />
 		<Unit filename="MuebleriaGrupo06.layout" />

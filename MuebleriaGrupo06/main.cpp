@@ -4,12 +4,22 @@
 #include "Compra.h"
 #include "ControladorProveedor.h"
 #include "Fecha.h"
+#include "Menu.h"
 
 //using namespace std; habilitar solo si es utilizado
 
-
 using namespace std;
 
+int main() {
+    ControladorProveedor cp("proveedores.dat");
+    iniciarMenu(cp);
+    return 0;
+}
+
+
+
+
+/*
 int main()
 {
 
@@ -33,7 +43,6 @@ int main()
     cout << p1.toCSV() << endl << endl;
     cout << "---------------------------" << endl << endl ;
 
-    /*
 
     Compra c1;
     cout << "1 Compra standar creado:" << endl;
@@ -45,7 +54,6 @@ int main()
     cout << pro1.toCSV() << endl << endl;
     cout << "---------------------------" << endl << endl ;
 
-    */
 
 
     if(cp1.Guardar(p1)){
@@ -84,3 +92,5 @@ int main()
 
     return 0;
 }
+*/
+
