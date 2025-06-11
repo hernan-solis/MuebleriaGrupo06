@@ -97,3 +97,9 @@
 1749603963 c:\users\nburg\desktop\utn\programacion ii\tp final\muebleriagrupo06\muebleriagrupo06\menu.h
 	"ControladorProveedor.h"
 
+1749604862 source:c:\users\nburg\desktop\utn\programacion ii\tp final\muebleriagrupo06\muebleriagrupo06\menu.cpp
+	<iostream>
+	<string>
+	"Menu.h"
+	"Proveedor.h"
+
