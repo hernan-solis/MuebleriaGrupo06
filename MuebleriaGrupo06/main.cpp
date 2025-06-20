@@ -1,15 +1,12 @@
-#include <iostream>
-//#include "Proveedor.h"
-//#include "Producto.h"
-//include "Compra.h"
-// #include "Fecha.h"
-#include "ControladorProveedor.h"
+// #include <iostream>
 #include "Menu.h"
-//using namespace std; habilitar solo si es utilizado
+#include "ControladorProveedor.h"
+#include "ControladorCompra.h"
 
 int main() {
     ControladorProveedor cp("proveedores.dat");
-    iniciarMenu(cp);
+    ControladorCompra cc("compras.dat");
+    iniciarMenu(cp, cc);
     return 0;
 }
 

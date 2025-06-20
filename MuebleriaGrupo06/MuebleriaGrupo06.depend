@@ -73,10 +73,10 @@
 1749164059 source:c:\users\nburg\desktop\utn\programacion ii\tp final\muebleriagrupo06\muebleriagrupo06\fecha.cpp
 	"Fecha.h"
 
-1749656274 source:c:\users\nburg\desktop\utn\programacion ii\tp final\muebleriagrupo06\muebleriagrupo06\main.cpp
-	<iostream>
-	"ControladorProveedor.h"
+1750447628 source:c:\users\nburg\desktop\utn\programacion ii\tp final\muebleriagrupo06\muebleriagrupo06\main.cpp
 	"Menu.h"
+	"ControladorProveedor.h"
+	"ControladorCompra.h"
 
 1749163668 c:\users\nburg\desktop\utn\programacion ii\tp final\muebleriagrupo06\muebleriagrupo06\producto.h
 	<string>
@@ -90,12 +90,43 @@
 	<iostream>
 	<cstring>
 
-1749603963 c:\users\nburg\desktop\utn\programacion ii\tp final\muebleriagrupo06\muebleriagrupo06\menu.h
+1750447877 c:\users\nburg\desktop\utn\programacion ii\tp final\muebleriagrupo06\muebleriagrupo06\menu.h
 	"ControladorProveedor.h"
+	"ControladorCompra.h"
 
-1749604862 source:c:\users\nburg\desktop\utn\programacion ii\tp final\muebleriagrupo06\muebleriagrupo06\menu.cpp
+1750448108 source:c:\users\nburg\desktop\utn\programacion ii\tp final\muebleriagrupo06\muebleriagrupo06\menu.cpp
 	<iostream>
-	<string>
 	"Menu.h"
+	"MenuProveedores.h"
+	"MenuCompras.h"
+
+1750446489 source:c:\users\nburg\desktop\utn\programacion ii\tp final\muebleriagrupo06\muebleriagrupo06\controladorcompra.cpp
+	"Fecha.h"
+	"ControladorCompra.h"
+
+1750445324 c:\users\nburg\desktop\utn\programacion ii\tp final\muebleriagrupo06\muebleriagrupo06\controladorcompra.h
+	<string>
+	"Compra.h"
+
+1750447364 c:\users\nburg\desktop\utn\programacion ii\tp final\muebleriagrupo06\muebleriagrupo06\menuproveedores.h
+	"ControladorProveedor.h"
 	"Proveedor.h"
+
+1750447362 c:\users\nburg\desktop\utn\programacion ii\tp final\muebleriagrupo06\muebleriagrupo06\menucompras.h
+	"ControladorCompra.h"
+	"Compra.h"
+
+1750448164 source:c:\users\nburg\desktop\utn\programacion ii\tp final\muebleriagrupo06\muebleriagrupo06\menuproveedores.cpp
+	<iostream>
+	<iomanip>
+	<string>
+	"MenuProveedores.h"
+	"Menu.h"
+
+1750447894 source:c:\users\nburg\desktop\utn\programacion ii\tp final\muebleriagrupo06\muebleriagrupo06\menucompras.cpp
+	<iostream>
+	<iomanip>
+	<string>
+	"MenuCompras.h"
+	"Menu.h"
 

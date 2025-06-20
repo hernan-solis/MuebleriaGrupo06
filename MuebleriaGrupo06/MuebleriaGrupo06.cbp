@@ -34,12 +34,18 @@
 		</Compiler>
 		<Unit filename="Compra.cpp" />
 		<Unit filename="Compra.h" />
+		<Unit filename="ControladorCompra.cpp" />
+		<Unit filename="ControladorCompra.h" />
 		<Unit filename="ControladorProveedor.cpp" />
 		<Unit filename="ControladorProveedor.h" />
 		<Unit filename="Fecha.cpp" />
 		<Unit filename="Fecha.h" />
 		<Unit filename="Menu.cpp" />
 		<Unit filename="Menu.h" />
+		<Unit filename="MenuCompras.cpp" />
+		<Unit filename="MenuCompras.h" />
+		<Unit filename="MenuProveedores.cpp" />
+		<Unit filename="MenuProveedores.h" />
 		<Unit filename="MuebleriaGrupo06.cbp" />
 		<Unit filename="MuebleriaGrupo06.depend" />
 		<Unit filename="MuebleriaGrupo06.layout" />

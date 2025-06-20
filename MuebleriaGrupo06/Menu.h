@@ -2,7 +2,10 @@
 #define MENU_H
 
 #include "ControladorProveedor.h"
+#include "ControladorCompra.h"
 
-void iniciarMenu(ControladorProveedor &cp);
+void limpiarPantalla();
+
+void iniciarMenu(ControladorProveedor &cp, ControladorCompra &cc);
 
 #endif
