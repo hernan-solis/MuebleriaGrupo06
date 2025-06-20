@@ -20,7 +20,7 @@ ControladorCompra::ControladorCompra(std::string nombreArchivo){
             maxId = lista[i].getIdCompra();
           };
       }
-      delete[] lista;
+      delete[] lista;   // agrego el delete porque dependiendo el sistema operativo puede llegar a quedar bloqueada la memoria q pedí!
     }
     compra.setIdCompra( maxId + 1 ); //setea el nuevo id a la nueva compra!
 

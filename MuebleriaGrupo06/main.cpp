@@ -4,9 +4,9 @@
 #include "ControladorCompra.h"
 
 int main() {
-    ControladorProveedor cp("proveedores.dat");
-    ControladorCompra cc("compras.dat");
-    iniciarMenu(cp, cc);
+    ControladorProveedor cprov("proveedores.dat");
+    ControladorCompra ccomp("compras.dat");
+    iniciarMenu(cprov, ccomp);
     return 0;
 }
 
