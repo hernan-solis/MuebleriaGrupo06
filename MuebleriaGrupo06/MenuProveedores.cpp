@@ -30,11 +30,11 @@ void mostrarProveedoresTabla(Proveedor* lista, int cantidad) {
     cout << setw(anchoDireccion) << "DIRECCION" << endl;
     cout << string(anchoId + anchoCuit + anchoNombre + anchoTelefono + anchoDireccion + 5, '-') << endl;
 
-    // Imprimir datos
+    // Imprimimosr datos
     bool hayActivos = false;
     for (int i = 0; i < cantidad; i++) {
         if (lista[i].getStatus()) {
-            cout << setw(anchoId) << i+1; // O usa el ID real si existe el método
+            cout << setw(anchoId) << i+1;
             cout << setw(anchoCuit) << lista[i].getCuitCuil();
             cout << setw(anchoNombre) << lista[i].getNombre();
             cout << setw(anchoTelefono) << lista[i].getTelefono();
@@ -50,7 +50,7 @@ void mostrarProveedoresTabla(Proveedor* lista, int cantidad) {
     }
 }
 
-// Implementación del menú de proveedores
+// menú de proveedores
 void menuProveedores(ControladorProveedor &cp) {
     int opcionProv;
 

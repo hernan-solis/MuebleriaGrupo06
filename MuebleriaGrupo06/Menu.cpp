@@ -6,9 +6,9 @@
 
 using namespace std;
 
-// Función para limpiar la pantalla
+// Fn para limpiar la pantalla
 void limpiarPantalla() {
-    system("cls");  // Para Windows
+    system("cls");
 }
 void iniciarMenu(ControladorProveedor &cp, ControladorCompra &cc) {
     int opcionMain;

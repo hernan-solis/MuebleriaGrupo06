@@ -33,7 +33,7 @@ void mostrarComprasTabla(Compra* lista, int cantidad) {
                              to_string(fecha.getMes()) + "/" +
                              to_string(fecha.getAnio());
 
-            cout << setw(anchoId) << i+1; // O usa getIdCompra() si existe
+            cout << setw(anchoId) << i+1;
             cout << setw(anchoProveedor) << lista[i].getIdProveedor();
             cout << setw(anchoFecha) << fechaStr << endl;
             hayActivos = true;
