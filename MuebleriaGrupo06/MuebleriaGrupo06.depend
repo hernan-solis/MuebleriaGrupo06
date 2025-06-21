@@ -1,25 +1,24 @@
 # depslib dependency file v1.0
-1749517979 source:c:\users\hernán\documents\proyectos\c++\progra 2\muebleriagrupo06\muebleriagrupo06\main.cpp
-	<iostream>
-	"Proveedor.h"
-	"Producto.h"
-	"Compra.h"
+1750544476 source:c:\users\hernán\documents\proyectos\c++\progra 2\muebleriagrupo06\muebleriagrupo06\main.cpp
+	"Menu.h"
 	"ControladorProveedor.h"
-	"Fecha.h"
+	"ControladorCompra.h"
+	"ControladorProducto.h"
 
-1749516887 source:c:\users\hernán\documents\proyectos\c++\progra 2\muebleriagrupo06\muebleriagrupo06\proveedor.cpp
+1749519659 source:c:\users\hernán\documents\proyectos\c++\progra 2\muebleriagrupo06\muebleriagrupo06\proveedor.cpp
 	"Proveedor.h"
 	<iostream>
 	<cstring>
 
-1749515889 c:\users\hernán\documents\proyectos\c++\progra 2\muebleriagrupo06\muebleriagrupo06\proveedor.h
+1750544476 c:\users\hernán\documents\proyectos\c++\progra 2\muebleriagrupo06\muebleriagrupo06\proveedor.h
 	<string>
 
-1749165330 source:c:\users\hernán\documents\proyectos\c++\progra 2\muebleriagrupo06\muebleriagrupo06\producto.cpp
+1750546150 source:c:\users\hernán\documents\proyectos\c++\progra 2\muebleriagrupo06\muebleriagrupo06\producto.cpp
 	"Producto.h"
 	<string>
+	<cstring>
 
-1749165330 c:\users\hernán\documents\proyectos\c++\progra 2\muebleriagrupo06\muebleriagrupo06\producto.h
+1750546150 c:\users\hernán\documents\proyectos\c++\progra 2\muebleriagrupo06\muebleriagrupo06\producto.h
 	<string>
 
 1749166141 source:c:\users\hernán\documents\proyectos\c++\progra 2\muebleriagrupo06\muebleriagrupo06\fecha.cpp
@@ -38,11 +37,11 @@
 	"Compra.h"
 	"Fecha.h"
 
-1749517111 c:\users\hernán\documents\proyectos\c++\progra 2\muebleriagrupo06\muebleriagrupo06\controladorproveedor.h
+1750544476 c:\users\hernán\documents\proyectos\c++\progra 2\muebleriagrupo06\muebleriagrupo06\controladorproveedor.h
 	<string>
 	"Proveedor.h"
 
-1749517922 source:c:\users\hernán\documents\proyectos\c++\progra 2\muebleriagrupo06\muebleriagrupo06\controladorproveedor.cpp
+1750544476 source:c:\users\hernán\documents\proyectos\c++\progra 2\muebleriagrupo06\muebleriagrupo06\controladorproveedor.cpp
 	"Fecha.h"
 	"ControladorProveedor.h"
 
@@ -155,4 +154,68 @@
 
 1750539837 c:\users\nburg\desktop\utn\programacion ii\tp final\muebleriagrupo06\muebleriagrupo06\categoria.h
 	<string>
+
+1750544476 source:c:\users\hernán\documents\proyectos\c++\progra 2\muebleriagrupo06\muebleriagrupo06\controladorcompra.cpp
+	"Fecha.h"
+	"ControladorCompra.h"
+
+1750539644 c:\users\hernán\documents\proyectos\c++\progra 2\muebleriagrupo06\muebleriagrupo06\controladorcompra.h
+	<string>
+	"Compra.h"
+
+1750544476 source:c:\users\hernán\documents\proyectos\c++\progra 2\muebleriagrupo06\muebleriagrupo06\controladorproducto.cpp
+	"ControladorProducto.h"
+
+1750544476 c:\users\hernán\documents\proyectos\c++\progra 2\muebleriagrupo06\muebleriagrupo06\controladorproducto.h
+	<string>
+	"Producto.h"
+
+1750544476 c:\users\hernán\documents\proyectos\c++\progra 2\muebleriagrupo06\muebleriagrupo06\menu.h
+	"ControladorProveedor.h"
+	"ControladorCompra.h"
+	"ControladorProducto.h"
+
+1750544476 source:c:\users\hernán\documents\proyectos\c++\progra 2\muebleriagrupo06\muebleriagrupo06\menu.cpp
+	<iostream>
+	"Menu.h"
+	"MenuProveedores.h"
+	"MenuCompras.h"
+	"MenuProductos.h"
+
+1750544476 c:\users\hernán\documents\proyectos\c++\progra 2\muebleriagrupo06\muebleriagrupo06\menuproveedores.h
+	"ControladorProveedor.h"
+	"Proveedor.h"
+
+1750539644 c:\users\hernán\documents\proyectos\c++\progra 2\muebleriagrupo06\muebleriagrupo06\menucompras.h
+	"ControladorCompra.h"
+	"Compra.h"
+
+1750544476 c:\users\hernán\documents\proyectos\c++\progra 2\muebleriagrupo06\muebleriagrupo06\menuproductos.h
+	"ControladorProducto.h"
+	"Producto.h"
+	"categoria.h"
+
+1750544476 c:\users\hernán\documents\proyectos\c++\progra 2\muebleriagrupo06\muebleriagrupo06\categoria.h
+	<string>
+
+1750544476 source:c:\users\hernán\documents\proyectos\c++\progra 2\muebleriagrupo06\muebleriagrupo06\menucompras.cpp
+	<iostream>
+	<iomanip>
+	<string>
+	"MenuCompras.h"
+	"Menu.h"
+
+1750546150 source:c:\users\hernán\documents\proyectos\c++\progra 2\muebleriagrupo06\muebleriagrupo06\menuproductos.cpp
+	<iostream>
+	<iomanip>
+	<string>
+	"MenuProductos.h"
+	"Menu.h"
+
+1750544476 source:c:\users\hernán\documents\proyectos\c++\progra 2\muebleriagrupo06\muebleriagrupo06\menuproveedores.cpp
+	<iostream>
+	<iomanip>
+	<string>
+	"MenuProveedores.h"
+	"Menu.h"
 
