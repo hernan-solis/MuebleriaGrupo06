@@ -57,8 +57,7 @@ void menuProductos(ControladorProducto &cprod, ControladorCategoriaProducto &ctr
         cout << "2. Ver todos los productos" << endl;
         cout << "3. Buscar producto por ID" << endl;
         cout << "4. Eliminar producto por ID" << endl;
-        cout << "5. Buscar producto por nombre" << endl;
-        cout << "6. Gestionar categorias" << endl;
+        cout << "5. Gestionar categorias" << endl;
         cout << "0. Volver al menu principal" << endl;
         cout << "Seleccione una opcion: ";
         cin >> opcion;
@@ -226,23 +225,7 @@ void menuProductos(ControladorProducto &cprod, ControladorCategoriaProducto &ctr
                 break;
             }
 
-            case 5: {
-                limpiarPantalla();
-                string nombreBuscar;
-                cout << "Ingrese nombre del producto a buscar: ";
-                getline(cin, nombreBuscar);
-                Producto p = cprod.BuscarPorNombreProducto(nombreBuscar);
-                if (p.getIdProducto() != -1) {
-                    cout << "Producto encontrado:\n" << p.toCSV() << endl;
-                } else {
-                    cout << "Producto no encontrado." << endl;
-                }
-                cout << "\nPresione Enter para continuar..."; cin.get();
-                break;
-            }
-
-
-            case 6:
+            case 5:
               limpiarPantalla();
               menuCategorias(ctrlCategorias);
               break;
