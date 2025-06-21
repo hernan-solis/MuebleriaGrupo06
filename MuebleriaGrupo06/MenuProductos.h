@@ -7,5 +7,5 @@
 
 void mostrarProductoTabla(Producto* lista, int cantidad);
 
-void menuProductos(ControladorProducto &cprod)
+void menuProductos(ControladorProducto &cprod);
 #endif // MENUPRODUCTOS_H_INCLUDED

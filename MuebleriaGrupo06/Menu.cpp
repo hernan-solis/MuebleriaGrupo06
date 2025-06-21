@@ -2,6 +2,7 @@
 #include "Menu.h"
 #include "MenuProveedores.h"
 #include "MenuCompras.h"
+#include "MenuProductos.h"
 
 
 using namespace std;
@@ -10,7 +11,7 @@ using namespace std;
 void limpiarPantalla() {
     system("cls");
 }
-void iniciarMenu(ControladorProveedor &cprov, ControladorCompra &ccomp, ControladorProducto &ccprod) {
+void iniciarMenu(ControladorProveedor &cprov, ControladorCompra &ccomp, ControladorProducto &cprod) {
     int opcionMain;
     do {
         limpiarPantalla();
@@ -39,9 +40,7 @@ void iniciarMenu(ControladorProveedor &cprov, ControladorCompra &ccomp, Controla
                 break;
             case 3:
                 limpiarPantalla();
-                cout << "\nMenu Productos - en construccion" << endl;
-                cout << "\nPresione Enter para continuar...";
-                cin.get();
+                menuProductos(cprod);
                 break;
             case 0:
                 limpiarPantalla();

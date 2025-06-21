@@ -12,8 +12,7 @@ Producto::Producto() {
     _status = true;
 }
 
-Producto::Producto(int idProducto, std::string nombre, std::string origen, int idTipo,
-                   int idCategoria, std::string descripcion, int stock, bool status) {
+Producto::Producto(int idProducto, std::string nombre, std::string origen, int idTipo, int idCategoria, std::string descripcion, int stock, bool status) {
     _idProducto = idProducto;
     _nombre = nombre;
     _origen = origen;
