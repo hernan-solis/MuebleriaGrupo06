@@ -24,7 +24,6 @@ void mostrarProductosTabla(Producto* lista, int cantidad) {
     cout << setw(anchoId) << "ID";
     cout << setw(anchoNombre) << "NOMBRE";
     cout << setw(anchoOrigen) << "ORIGEN";
-    cout << setw(anchoTipo) << "TIPO";
     cout << setw(anchoCategoria) << "CATEGORIA";
     cout << setw(anchoStock) << "STOCK" << endl;
     cout << string(anchoId + anchoNombre + anchoOrigen + anchoTipo + anchoCategoria + anchoStock + 5, '-') << endl;
@@ -35,7 +34,6 @@ void mostrarProductosTabla(Producto* lista, int cantidad) {
             cout << setw(anchoId) << lista[i].getIdProducto();
             cout << setw(anchoNombre) << lista[i].getNombre();
             cout << setw(anchoOrigen) << lista[i].getOrigen();
-            cout << setw(anchoTipo) << lista[i].getIdTipo();
             cout << setw(anchoCategoria) << lista[i].getIdCategoria();
             cout << setw(anchoStock) << lista[i].getStock() << endl;
             hayActivos = true;
@@ -75,9 +73,6 @@ void menuProductos(ControladorProducto &cprod) {
 
                 cout << "Ingrese origen: ";
                 getline(cin, aux); p.setOrigen(aux);
-
-                cout << "Ingrese ID tipo: ";
-                cin >> auxInt; cin.ignore(); p.setIdTipo(auxInt);
 
                 cout << "Categorías disponibles:\n";
                 cout << "1. Interior\n";
