@@ -73,13 +73,14 @@
 1749164059 source:c:\users\nburg\desktop\utn\programacion ii\tp final\muebleriagrupo06\muebleriagrupo06\fecha.cpp
 	"Fecha.h"
 
-1750538409 source:c:\users\nburg\desktop\utn\programacion ii\tp final\muebleriagrupo06\muebleriagrupo06\main.cpp
+1750547393 source:c:\users\nburg\desktop\utn\programacion ii\tp final\muebleriagrupo06\muebleriagrupo06\main.cpp
 	"Menu.h"
 	"ControladorProveedor.h"
 	"ControladorCompra.h"
 	"ControladorProducto.h"
+	"ControladorCategoriaProducto.h"
 
-1750545244 c:\users\nburg\desktop\utn\programacion ii\tp final\muebleriagrupo06\muebleriagrupo06\producto.h
+1750546950 c:\users\nburg\desktop\utn\programacion ii\tp final\muebleriagrupo06\muebleriagrupo06\producto.h
 	<string>
 
 1750545428 source:c:\users\nburg\desktop\utn\programacion ii\tp final\muebleriagrupo06\muebleriagrupo06\producto.cpp
@@ -92,12 +93,13 @@
 	<iostream>
 	<cstring>
 
-1750538638 c:\users\nburg\desktop\utn\programacion ii\tp final\muebleriagrupo06\muebleriagrupo06\menu.h
+1750547234 c:\users\nburg\desktop\utn\programacion ii\tp final\muebleriagrupo06\muebleriagrupo06\menu.h
 	"ControladorProveedor.h"
 	"ControladorCompra.h"
 	"ControladorProducto.h"
+	"ControladorCategoriaProducto.h"
 
-1750544141 source:c:\users\nburg\desktop\utn\programacion ii\tp final\muebleriagrupo06\muebleriagrupo06\menu.cpp
+1750547299 source:c:\users\nburg\desktop\utn\programacion ii\tp final\muebleriagrupo06\muebleriagrupo06\menu.cpp
 	<iostream>
 	"Menu.h"
 	"MenuProveedores.h"
@@ -134,7 +136,7 @@
 	"MenuCompras.h"
 	"Menu.h"
 
-1750545454 source:c:\users\nburg\desktop\utn\programacion ii\tp final\muebleriagrupo06\muebleriagrupo06\menuproductos.cpp
+1750547197 source:c:\users\nburg\desktop\utn\programacion ii\tp final\muebleriagrupo06\muebleriagrupo06\menuproductos.cpp
 	<iostream>
 	<iomanip>
 	<string>
@@ -148,11 +150,31 @@
 1750538548 source:c:\users\nburg\desktop\utn\programacion ii\tp final\muebleriagrupo06\muebleriagrupo06\controladorproducto.cpp
 	"ControladorProducto.h"
 
-1750544027 c:\users\nburg\desktop\utn\programacion ii\tp final\muebleriagrupo06\muebleriagrupo06\menuproductos.h
+1750547020 c:\users\nburg\desktop\utn\programacion ii\tp final\muebleriagrupo06\muebleriagrupo06\menuproductos.h
 	"ControladorProducto.h"
 	"Producto.h"
-	"categoria.h"
+	"ControladorCategoriaProducto.h"
 
 1750539837 c:\users\nburg\desktop\utn\programacion ii\tp final\muebleriagrupo06\muebleriagrupo06\categoria.h
 	<string>
+
+1750546470 source:c:\users\nburg\desktop\utn\programacion ii\tp final\muebleriagrupo06\muebleriagrupo06\controladorcategoriaproducto.cpp
+	"ControladorCategoriaProducto.h"
+	<cstdio>
+	<cstring>
+
+1750546950 c:\users\nburg\desktop\utn\programacion ii\tp final\muebleriagrupo06\muebleriagrupo06\controladorcategoriaproducto.h
+	"CategoriaProducto.h"
+	<string>
+
+1750546950 c:\users\nburg\desktop\utn\programacion ii\tp final\muebleriagrupo06\muebleriagrupo06\categoriaproducto.h
+	<string>
+
+1750546950 source:c:\users\nburg\desktop\utn\programacion ii\tp final\muebleriagrupo06\muebleriagrupo06\menucategoriaproducto.cpp
+	<iostream>
+	"ControladorCategoriaProducto.h"
+
+1750546982 source:c:\users\nburg\desktop\utn\programacion ii\tp final\muebleriagrupo06\muebleriagrupo06\categoriaproducto.cpp
+	"CategoriaProducto.h"
+	<cstring>
 
