@@ -51,7 +51,7 @@ void mostrarProveedoresTabla(Proveedor* lista, int cantidad) {
 }
 
 // menú de proveedores
-void menuProveedores(ControladorProveedor &cp) {
+void menuProveedores(ControladorProveedor &cprov) {
     int opcionProv;
 
     do {
@@ -63,6 +63,7 @@ void menuProveedores(ControladorProveedor &cp) {
         cout << "2. Ver todos los proveedores" << endl;
         cout << "3. Buscar proveedor por ID" << endl;
         cout << "4. Eliminar proveedor por ID" << endl;
+        cout << "5. Buscar proveedor por nombre" << endl;
         cout << "0. Volver al menu principal" << endl;
         cout << "Seleccione una opcion: ";
         cin >> opcionProv;
@@ -86,13 +87,13 @@ void menuProveedores(ControladorProveedor &cp) {
                 getline(cin, auxStr);
                 p.setTelefono(auxStr);
 
-                cout << "Ingrese direccion: ";
+                cout << "Ingrese direccion (calle y numero): ";
                 getline(cin, auxStr);
                 p.setDireccion(auxStr);
 
                 p.setStatus(true);
 
-                if (cp.Guardar(p)) {
+                if (cprov.Guardar(p)) {
                     cout << "Proveedor guardado correctamente." << endl;
                 } else {
                     cout << "Error al guardar el proveedor." << endl;
@@ -104,12 +105,12 @@ void menuProveedores(ControladorProveedor &cp) {
 
             case 2: {
                 limpiarPantalla();
-                int cantidad = cp.CantidadRegistros();
+                int cantidad = cprov.CantidadRegistros();
                 if (cantidad == 0) {
                     cout << "No hay proveedores cargados." << endl;
                 } else {
                     Proveedor* lista = new Proveedor[cantidad];
-                    cp.Leer(cantidad, lista);
+                    cprov.Leer(cantidad, lista);
 
                     // Mostrar solo los proveedores activos en formato tabla
                     mostrarProveedoresTabla(lista, cantidad);
@@ -127,9 +128,9 @@ void menuProveedores(ControladorProveedor &cp) {
                 cout << "Ingrese ID proveedor a buscar: ";
                 cin >> idBuscar; cin.ignore();
 
-                int pos = cp.Buscar(idBuscar);
+                int pos = cprov.Buscar(idBuscar);
                 if (pos != -1) {
-                    Proveedor pBuscado = cp.Leer(pos);
+                    Proveedor pBuscado = cprov.Leer(pos);
                     cout << "Proveedor encontrado:" << endl;
                     cout << pBuscado.toCSV() << endl;
                 } else {
@@ -147,7 +148,7 @@ void menuProveedores(ControladorProveedor &cp) {
                 cin >> idEliminar;
                 cin.ignore();
 
-                if (cp.Eliminar(idEliminar)) {
+                if (cprov.Eliminar(idEliminar)) {
                     cout << "Proveedor eliminado)." << endl;
                 } else {
                     cout << "No se pudo eliminar el proveedor. Verifique que el ID exista." << endl;
@@ -156,6 +157,29 @@ void menuProveedores(ControladorProveedor &cp) {
                 cin.get();
                 break;
             }
+
+            case 5: {
+                limpiarPantalla();
+                string nombreBuscar;
+                cout << "Ingrese el nombre del proveedor a buscar: ";
+                getline(cin, nombreBuscar);
+
+                Proveedor pBuscado = cprov.BuscarProveedorPorNombre(nombreBuscar);
+                if (pBuscado.getIdProveedor() != 0) { // verifica que no sea el vacío
+                    cout << "Proveedor encontrado:" << endl;
+                    // cout << pBuscado.toCSV() << endl;  //¿¿¿DEVOLVEMOS TODO EL PROVEEDOR O SIMPLEMENTE SU ID Y SU NOMBRE??
+                    cout << "Id de Proveedor: ";
+                    cout << pBuscado.getIdProveedor()  << endl;
+                    cout << "Nombre del proveedor: ";
+                    cout << pBuscado.getNombre()  << endl;
+                } else {
+                    cout << "Proveedor no encontrado." << endl;
+                }
+
+                cout << "\nPresione Enter para continuar...";
+                cin.get();
+                break;
+          }
 
             case 0:
                 cout << "Saliendo del menu de proveedores..." << endl;
