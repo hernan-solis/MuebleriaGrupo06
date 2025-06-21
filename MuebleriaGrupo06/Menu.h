@@ -3,9 +3,10 @@
 
 #include "ControladorProveedor.h"
 #include "ControladorCompra.h"
+#include "ControladorProducto.h"
 
 void limpiarPantalla();
 
-void iniciarMenu(ControladorProveedor &cp, ControladorCompra &cc);
+void iniciarMenu(ControladorProveedor &cprov, ControladorCompra &ccomp, ControladorProducto &cprod);
 
 #endif

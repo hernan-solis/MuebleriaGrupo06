@@ -10,7 +10,7 @@ using namespace std;
 void limpiarPantalla() {
     system("cls");
 }
-void iniciarMenu(ControladorProveedor &cp, ControladorCompra &cc) {
+void iniciarMenu(ControladorProveedor &cprov, ControladorCompra &ccomp, ControladorProducto &ccprod) {
     int opcionMain;
     do {
         limpiarPantalla();
@@ -22,6 +22,7 @@ void iniciarMenu(ControladorProveedor &cp, ControladorCompra &cc) {
         cout << "1. Proveedores\n";
         cout << "2. Compras\n";
         cout << "3. Productos\n";
+        cout << "4. Informes\n";
         cout << "0. Salir\n";
         cout << "Opcion: ";
         cin >> opcionMain;
@@ -30,11 +31,11 @@ void iniciarMenu(ControladorProveedor &cp, ControladorCompra &cc) {
         switch(opcionMain) {
             case 1:
                 limpiarPantalla();
-                menuProveedores(cp);
+                menuProveedores(cprov);
                 break;
             case 2:
                 limpiarPantalla();
-                menuCompras(cc);
+                menuCompras(ccomp);
                 break;
             case 3:
                 limpiarPantalla();

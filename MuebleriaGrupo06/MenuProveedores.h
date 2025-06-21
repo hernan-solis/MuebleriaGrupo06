@@ -8,6 +8,6 @@
 void mostrarProveedoresTabla(Proveedor* lista, int cantidad);
 
 // Menú de Proveedores
-void menuProveedores(ControladorProveedor &cp);
+void menuProveedores(ControladorProveedor &cprov);
 
 #endif

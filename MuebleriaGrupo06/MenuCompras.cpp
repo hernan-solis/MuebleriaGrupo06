@@ -49,7 +49,7 @@ void mostrarComprasTabla(Compra* lista, int cantidad) {
 
 
 //MENU COMPRAS
-void menuCompras(ControladorCompra &cc) {
+void menuCompras(ControladorCompra &ccomp) {
     int opcion;
     do {
         limpiarPantalla();
@@ -87,7 +87,7 @@ void menuCompras(ControladorCompra &cc) {
 
                 c.setStatus(status);
 
-                if (cc.Guardar(c)) {
+                if (ccomp.Guardar(c)) {
                     cout << "Compra guardada correctamente." << endl;
                 } else {
                     cout << "Error al guardar la compra." << endl;
@@ -98,12 +98,12 @@ void menuCompras(ControladorCompra &cc) {
             }
             case 2: {
                 limpiarPantalla();
-                int cantidad = cc.CantidadRegistros();
+                int cantidad = ccomp.CantidadRegistros();
                 if (cantidad == 0) {
                     cout << "No hay compras cargadas." << endl;
                 } else {
                     Compra* lista = new Compra[cantidad];
-                    cc.Leer(cantidad, lista);
+                    ccomp.Leer(cantidad, lista);
 
                     // Mostrar compras como tabla
                     mostrarComprasTabla(lista, cantidad);
@@ -120,9 +120,9 @@ void menuCompras(ControladorCompra &cc) {
                 cout << "Ingrese ID compra a buscar: ";
                 cin >> idBuscar; cin.ignore();
 
-                int pos = cc.Buscar(idBuscar);
+                int pos = ccomp.Buscar(idBuscar);
                 if (pos != -1) {
-                    Compra cBuscado = cc.Leer(pos);
+                    Compra cBuscado = ccomp.Leer(pos);
                     cout << "Compra encontrada:" << endl;
 
                     // Mostrar datos de la compra
@@ -145,7 +145,7 @@ void menuCompras(ControladorCompra &cc) {
                 cin >> idEliminar;
                 cin.ignore();
 
-                if (cc.Eliminar(idEliminar)) {
+                if (ccomp.Eliminar(idEliminar)) {
                     cout << "Compra eliminada correctamente." << endl;
                 } else {
                     cout << "No se pudo eliminar la compra. Verifique que el ID exista." << endl;
