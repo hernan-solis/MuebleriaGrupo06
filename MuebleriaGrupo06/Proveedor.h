@@ -1,7 +1,6 @@
 #pragma once
 #include <string>
 
-
 class Proveedor{
     private:
         int _idProveedor;
@@ -35,4 +34,3 @@ class Proveedor{
 
 
 };
-

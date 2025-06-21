@@ -2,11 +2,13 @@
 #include "Menu.h"
 #include "ControladorProveedor.h"
 #include "ControladorCompra.h"
+#include "ControladorProducto.h"
 
 int main() {
-    ControladorProveedor cp("proveedores.dat");
-    ControladorCompra cc("compras.dat");
-    iniciarMenu(cp, cc);
+    ControladorProveedor cprov("proveedores.dat");
+    ControladorCompra ccomp("compras.dat");
+    ControladorProducto cprod("productos.dat");
+    iniciarMenu(cprov, ccomp, cprod);
     return 0;
 }
 

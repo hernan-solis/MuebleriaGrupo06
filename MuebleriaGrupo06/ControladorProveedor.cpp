@@ -74,6 +74,28 @@ int ControladorProveedor::Buscar(int idProveedor){
 }
 
 
+//Se le pasa un nombre de Proveedor y devuelve un objeto proveedor, si no existe devolvera un Proveedor vacio standar
+
+Proveedor ControladorProveedor::BuscarProveedorPorNombre(std::string nombre){
+    FILE *pArchivo = fopen(_nombreArchivo.c_str(), "rb");
+    if(pArchivo == NULL){
+        return Proveedor();
+    }
+
+    Proveedor proveedor;
+
+    while(fread(&proveedor, sizeof(Proveedor), 1, pArchivo)){
+      if(proveedor.getNombre() == nombre && proveedor.getStatus()){ // busca por nombr y además se fija que proveedor esté activo!
+            fclose(pArchivo);
+            return proveedor;
+        }
+    }
+
+    fclose(pArchivo);
+    return Proveedor(); // Retorna uno vacío si no lo encuentra
+}
+
+
 //Busca posicion y devuelve Proveedor, si no hay nada devuelve Proveedor vacio standar
 Proveedor ControladorProveedor::Leer(int posicion){
     FILE *pArchivo = fopen(_nombreArchivo.c_str(), "rb");

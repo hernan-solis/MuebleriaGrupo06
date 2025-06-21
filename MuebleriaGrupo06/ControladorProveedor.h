@@ -20,6 +20,9 @@ class ControladorProveedor{
         //Se le pasa un ID Proveedor y devuelve la posicion del registro en el .dat
         int Buscar(int idProveedor);
 
+        //se le pasa un NOMBRE de proveedor y devuelve yun objeto proveedor
+        Proveedor BuscarProveedorPorNombre(std::string nombre);
+
 
         //Busca posicion y devuelve Proveedor, si no hay nada devuelve Proveedor vacio standar
         Proveedor Leer(int posicion);
