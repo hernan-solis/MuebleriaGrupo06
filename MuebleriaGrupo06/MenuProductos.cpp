@@ -4,10 +4,9 @@
 #include "MenuProductos.h"
 #include "MenuCategoriaProducto.h"
 #include "Menu.h"
-
+#include "Validador.h"
 
 using namespace std;
-
 
 void mostrarProductosTabla(Producto* lista, int cantidad) {
     const int anchoId = 6;
@@ -70,18 +69,31 @@ void menuProductos(ControladorProducto &cprod, ControladorCategoriaProducto &ctr
                 string aux;
                 int auxInt;
 
-                cout << "Ingrese nombre: ";
-                getline(cin, aux); p.setNombre(aux);
+                do {
+                    limpiarPantalla();
+                    cout << "Ingrese nombre: ";
+                    getline(cin, aux);
+                    if (!Validador::longitudValida(aux, 0, 50)) {
+                        cout << "\nNombre muy largo, 50 caracteres maximos...\n";
+                        system("pause");
+                    }
+                } while (!Validador::longitudValida(aux, 0, 50));
+                p.setNombre(aux);
 
-                cout << "Ingrese origen: ";
-                getline(cin, aux); p.setOrigen(aux);
-
-
+                do {
+                    limpiarPantalla();
+                    cout << "Ingrese origen: ";
+                    getline(cin, aux);
+                    if (!Validador::longitudValida(aux, 0, 50)) {
+                        cout << "\nOrigen muy largo, 50 caracteres maximos...\n";
+                        system("pause");
+                    }
+                } while (!Validador::longitudValida(aux, 0, 50));
+                p.setOrigen(aux);
 
                 int cantCat = ctrlCategorias.CantidadRegistros();
-                  if (cantCat == 0) {
+                if (cantCat == 0) {
                     cout << "No hay categorías cargadas. Vamos a crear una ahora.\n";
-
                     string nuevoNombre;
                     cout << "Ingrese nombre de la nueva categoría: ";
                     getline(cin, nuevoNombre);
@@ -98,7 +110,6 @@ void menuProductos(ControladorProducto &cprod, ControladorCategoriaProducto &ctr
                         }
                     }
 
-                    // Actualizamos categorías
                     cantCat = ctrlCategorias.CantidadRegistros();
                     if (cantCat == 0) {
                         cout << "No se pudo crear una categoría válida. Cancelando carga de producto.\n";
@@ -107,66 +118,72 @@ void menuProductos(ControladorProducto &cprod, ControladorCategoriaProducto &ctr
                     }
                 }
 
+                CategoriaProducto* categorias = new CategoriaProducto[cantCat];
+                ctrlCategorias.Leer(cantCat, categorias);
 
-                  CategoriaProducto* categorias = new CategoriaProducto[cantCat];
-                  ctrlCategorias.Leer(cantCat, categorias);
+                cout << "Categorías disponibles:\n";
+                for (int i = 0; i < cantCat; i++) {
+                    cout << categorias[i].getIdCategoria() << ". " << categorias[i].getNombre() << "\n";
+                }
 
-                  cout << "Categorías disponibles:\n";
-                  for (int i = 0; i < cantCat; i++) {
-                      cout << categorias[i].getIdCategoria() << ". " << categorias[i].getNombre() << "\n";
-                  }
+                bool valido = false;
+                do {
+                    cout << "Ingrese el ID de la categoría (o 0 para agregar una nueva): ";
+                    cin >> auxInt;
+                    cin.ignore();
 
-                  bool valido = false;
-                 do {
-                  cout << "Ingrese el ID de la categoría (o 0 para agregar una nueva): ";
-                  cin >> auxInt;
-                  cin.ignore();
+                    if (auxInt == 0) {
+                        delete[] categorias;
+                        string nuevoNombre;
+                        cout << "Ingrese nombre de la nueva categoría: ";
+                        getline(cin, nuevoNombre);
 
-                  if (auxInt == 0) {
-                      delete[] categorias;
-                      string nuevoNombre;
-                      cout << "Ingrese nombre de la nueva categoría: ";
-                      getline(cin, nuevoNombre);
+                        if (ctrlCategorias.BuscarPorNombre(nuevoNombre).getIdCategoria() != 0) {
+                            cout << "Esa categoría ya existe.\n";
+                        } else {
+                            CategoriaProducto nuevaCat;
+                            nuevaCat.setNombre(nuevoNombre);
+                            if (ctrlCategorias.Guardar(nuevaCat)) {
+                                cout << "Categoría agregada con éxito.\n";
+                                cantCat = ctrlCategorias.CantidadRegistros();
+                                categorias = new CategoriaProducto[cantCat];
+                                ctrlCategorias.Leer(cantCat, categorias);
+                                auxInt = categorias[cantCat - 1].getIdCategoria();
+                                valido = true;
+                            } else {
+                                cout << "Error al guardar la categoría.\n";
+                            }
+                        }
+                    } else {
+                        for (int i = 0; i < cantCat; i++) {
+                            if (categorias[i].getIdCategoria() == auxInt) {
+                                valido = true;
+                                break;
+                            }
+                        }
+                        if (!valido) {
+                            cout << "ID de categoría inválido. Intente de nuevo.\n";
+                        }
+                    }
+                } while (!valido);
 
-                      if (ctrlCategorias.BuscarPorNombre(nuevoNombre).getIdCategoria() != 0) {
-                          cout << "Esa categoría ya existe.\n";
-                      } else {
-                          CategoriaProducto nuevaCat;
-                          nuevaCat.setNombre(nuevoNombre);
-                          if (ctrlCategorias.Guardar(nuevaCat)) {
-                              cout << "Categoría agregada con éxito.\n";
-                              cantCat = ctrlCategorias.CantidadRegistros();  // actualizar lista
-                              categorias = new CategoriaProducto[cantCat];
-                              ctrlCategorias.Leer(cantCat, categorias);
-                              auxInt = categorias[cantCat - 1].getIdCategoria();  // usar el último ID asignado
-                              valido = true;
-                          } else {
-                              cout << "Error al guardar la categoría.\n";
-                          }
-                      }
-                  } else {
-                      for (int i = 0; i < cantCat; i++) {
-                          if (categorias[i].getIdCategoria() == auxInt) {
-                              valido = true;
-                              break;
-                          }
-                      }
-                      if (!valido) {
-                          cout << "ID de categoría inválido. Intente de nuevo.\n";
-                      }
-                  }
-              } while (!valido);
+                p.setIdCategoria(auxInt);
+                delete[] categorias;
 
-
-                  p.setIdCategoria(auxInt);
-                  delete[] categorias;
-
-
-                cout << "Ingrese descripción: ";
-                getline(cin, aux); p.setDescripcion(aux);
+                do {
+                    limpiarPantalla();
+                    cout << "Ingrese descripcion: ";
+                    getline(cin, aux);
+                    if (!Validador::longitudValida(aux, 0, 100)) {
+                        cout << "\nDescripcion muy larga, 100 caracteres maximos...\n";
+                        system("pause");
+                    }
+                } while (!Validador::longitudValida(aux, 0, 100));
+                p.setDescripcion(aux);
 
                 cout << "Ingrese stock: ";
-                cin >> auxInt; cin.ignore(); p.setStock(auxInt);
+                cin >> auxInt; cin.ignore();
+                p.setStock(auxInt);
 
                 p.setStatus(true);
 
@@ -226,9 +243,9 @@ void menuProductos(ControladorProducto &cprod, ControladorCategoriaProducto &ctr
             }
 
             case 5:
-              limpiarPantalla();
-              menuCategorias(ctrlCategorias);
-              break;
+                limpiarPantalla();
+                menuCategorias(ctrlCategorias);
+                break;
 
             case 0:
                 cout << "Saliendo del menu de productos..." << endl;
