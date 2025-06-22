@@ -3,7 +3,6 @@
 #include <string>
 #include "MenuProveedores.h"
 #include "Menu.h"
-#include "Validador.h"
 
 using namespace std;
 
@@ -76,85 +75,27 @@ void menuProveedores(ControladorProveedor &cprov) {
                 Proveedor p;
                 string auxStr;
 
-                do {
-                    limpiarPantalla();
-                    cout << "Ingrese CUIT/CUIL en formato 00-00000000-0: ";
-                    getline(cin, auxStr);
-
-                    if (!Validador::validarCuitCuil(auxStr)) {
-                        cout << endl << endl;
-                        cout << "CUIT/CUIL invalido o ya existente. Intente nuevamente...\n";
-                        cout << endl << endl;
-                        system("pause");
-                        }
-
-                    } while (!Validador::validarCuitCuil(auxStr));
-
+                cout << "Ingrese CUIT/CUIL: ";
+                getline(cin, auxStr);
                 p.setCuitCuil(auxStr);
 
-                do {
-                    limpiarPantalla();
-                    cout << "Ingrese nombre: ";
-                    getline(cin, auxStr);
-
-                    if (!Validador::longitudValida(auxStr,0,50)) {
-                        cout << endl << endl;
-                        cout << "Nombre muy largo, 50 caracteres maximos...";
-                        cout << endl << endl;
-                        system("pause");
-                        }
-
-                    } while (!Validador::longitudValida(auxStr,0,50));
-
+                cout << "Ingrese nombre: ";
+                getline(cin, auxStr);
                 p.setNombre(auxStr);
 
-
-
-                do {
-                    limpiarPantalla();
-                    cout << "Ingrese telefono: ";
-                    getline(cin, auxStr);
-
-                    if (!Validador::longitudValida(auxStr,0,20)) {
-                        cout << endl << endl;
-                        cout << "Telefono muy largo, 20 caracteres maximos...";
-                        cout << endl << endl;
-                        system("pause");
-                        }
-
-                    } while (!Validador::longitudValida(auxStr,0,20));
-
+                cout << "Ingrese telefono: ";
+                getline(cin, auxStr);
                 p.setTelefono(auxStr);
 
-
-                do {
-                    limpiarPantalla();
-                    cout << "Ingrese direccion (calle y numero): ";
-                    getline(cin, auxStr);
-
-                    if (!Validador::longitudValida(auxStr,0,100)) {
-                        cout << endl << endl;
-                        cout << "Direccion muy larga, 100 caracteres maximos...";
-                        cout << endl << endl;
-                        system("pause");
-                        }
-
-                    } while (!Validador::longitudValida(auxStr,0,100));
-
+                cout << "Ingrese direccion (calle y numero): ";
+                getline(cin, auxStr);
                 p.setDireccion(auxStr);
-
-
 
                 p.setStatus(true);
 
-
-
-
                 if (cprov.Guardar(p)) {
-                    limpiarPantalla();
                     cout << "Proveedor guardado correctamente." << endl;
                 } else {
-                    limpiarPantalla();
                     cout << "Error al guardar el proveedor." << endl;
                 }
                 cout << "\nPresione Enter para continuar...";

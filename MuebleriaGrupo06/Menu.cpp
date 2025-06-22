@@ -11,7 +11,8 @@ using namespace std;
 void limpiarPantalla() {
     system("cls");
 }
-void iniciarMenu(ControladorProveedor &cprov, ControladorCompra &ccomp, ControladorProducto &cprod) {
+
+void iniciarMenu(ControladorProveedor &cprov, ControladorCompra &ccomp, ControladorProducto &cprod, ControladorCategoriaProducto &ctrlCategorias, ControladorDetalleCompra &cdetalle) {
     int opcionMain;
     do {
         limpiarPantalla();
@@ -36,11 +37,14 @@ void iniciarMenu(ControladorProveedor &cprov, ControladorCompra &ccomp, Controla
                 break;
             case 2:
                 limpiarPantalla();
-                menuCompras(ccomp);
+                menuCompras(ccomp, cdetalle, cprov, cprod, ctrlCategorias);
                 break;
             case 3:
                 limpiarPantalla();
-                menuProductos(cprod);
+                menuProductos(cprod, ctrlCategorias);
+            case 4:
+                limpiarPantalla();
+                cout << "\nMenu informes en construccion!" << endl;
                 break;
             case 0:
                 limpiarPantalla();

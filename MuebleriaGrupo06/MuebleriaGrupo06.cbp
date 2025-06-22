@@ -32,19 +32,28 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="Categoria.h" />
+		<Unit filename="CategoriaProducto.cpp" />
+		<Unit filename="CategoriaProducto.h" />
 		<Unit filename="Compra.cpp" />
 		<Unit filename="Compra.h" />
+		<Unit filename="ControladorCategoriaProducto.cpp" />
+		<Unit filename="ControladorCategoriaProducto.h" />
 		<Unit filename="ControladorCompra.cpp" />
 		<Unit filename="ControladorCompra.h" />
+		<Unit filename="ControladorDetalleCompra.cpp" />
+		<Unit filename="ControladorDetalleCompra.h" />
 		<Unit filename="ControladorProducto.cpp" />
 		<Unit filename="ControladorProducto.h" />
 		<Unit filename="ControladorProveedor.cpp" />
 		<Unit filename="ControladorProveedor.h" />
+		<Unit filename="DetalleCompra.cpp" />
+		<Unit filename="DetalleCompra.h" />
 		<Unit filename="Fecha.cpp" />
 		<Unit filename="Fecha.h" />
 		<Unit filename="Menu.cpp" />
 		<Unit filename="Menu.h" />
+		<Unit filename="MenuCategoriaProducto.cpp" />
+		<Unit filename="MenuCategoriaProducto.h" />
 		<Unit filename="MenuCompras.cpp" />
 		<Unit filename="MenuCompras.h" />
 		<Unit filename="MenuProductos.cpp" />
@@ -58,8 +67,6 @@
 		<Unit filename="Producto.h" />
 		<Unit filename="Proveedor.cpp" />
 		<Unit filename="Proveedor.h" />
-		<Unit filename="Validador.cpp" />
-		<Unit filename="Validador.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
