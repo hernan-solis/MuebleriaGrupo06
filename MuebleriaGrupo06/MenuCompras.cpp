@@ -154,19 +154,21 @@ void cargarCompraConDetalle(ControladorCompra &ccomp,
             cin.ignore();
 
             if (idProducto == 0) {
-                void menuProductos(ControladorProducto &cprod, ControladorCategoriaProducto &ctrlCategorias); // función para agregar producto
-                cantProd = cprod.CantidadRegistros();
+                 menuProductos(cprod, ctrlCategorias); // abre el menu de productos para cargar un nuevo producto
+
+                cantProd = cprod.CantidadRegistros(); // y aca leemos nuevamente la cantidad y la lista de productos.
                 delete[] listaProd;
                 listaProd = new Producto[cantProd];
                 cprod.Leer(cantProd, listaProd);
                 cout << "Productos actualizados:\n";
                 for (int i = 0; i < cantProd; i++) {
                     if(listaProd[i].getStatus() == true){
-                      cout << listaProd[i].getIdProducto() << ". " << listaProd[i].getNombre() << "\n";
+                      cout << listaProd[i].getIdProducto() << ". " << listaProd[i].getNombre() << "\n"; // lista actualzada de productos
                     }
                 }
             } else {
                 for (int i = 0; i < cantProd; i++) {
+
                     if (listaProd[i].getIdProducto() == idProducto) {
                         productoValido = true;
                         break;
