@@ -40,10 +40,14 @@
 		<Unit filename="ControladorCategoriaProducto.h" />
 		<Unit filename="ControladorCompra.cpp" />
 		<Unit filename="ControladorCompra.h" />
+		<Unit filename="ControladorDetalleCompra.cpp" />
+		<Unit filename="ControladorDetalleCompra.h" />
 		<Unit filename="ControladorProducto.cpp" />
 		<Unit filename="ControladorProducto.h" />
 		<Unit filename="ControladorProveedor.cpp" />
 		<Unit filename="ControladorProveedor.h" />
+		<Unit filename="DetalleCompra.cpp" />
+		<Unit filename="DetalleCompra.h" />
 		<Unit filename="Fecha.cpp" />
 		<Unit filename="Fecha.h" />
 		<Unit filename="Menu.cpp" />
