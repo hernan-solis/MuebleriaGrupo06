@@ -58,13 +58,20 @@ void cargarCompraConDetalle(ControladorCompra &ccomp,
 
         if (idProveedor == 0) {
             menuProveedores(cprov);  // función para agregar proveedor
+
+
             cantProv = cprov.CantidadRegistros();
             delete[] listaProv;
             listaProv = new Proveedor[cantProv];
             cprov.Leer(cantProv, listaProv);
+
+            limpiarPantalla();
+
             cout << "Proveedores actualizados:\n";
             for (int i = 0; i < cantProv; i++) {
-                cout << listaProv[i].getIdProveedor() << ". " << listaProv[i].getNombre() << "\n";
+               if(listaProv[i].getStatus() == true){
+            cout << listaProv[i].getIdProveedor() << ". " << listaProv[i].getNombre() << "\n";
+        }
             }
         } else {
             for (int i = 0; i < cantProv; i++) {
