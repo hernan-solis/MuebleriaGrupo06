@@ -6,7 +6,6 @@ class Producto {
       int _idProducto;
       char _nombre[51];
       char _origen[51];
-      //int _idTipo;
       int _idCategoria;
       char _descripcion[101];
       int _stock;

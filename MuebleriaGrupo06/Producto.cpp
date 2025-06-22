@@ -23,10 +23,10 @@ Producto::Producto(int idProducto, std::string nombre, std::string origen, int i
 }
 
 int Producto::getIdProducto() { return _idProducto; }
-std::string Producto::getNombre() { return _nombre; }
-std::string Producto::getOrigen() { return _origen; }
+std::string Producto::getNombre() { return std::string(_nombre); }
+std::string Producto::getOrigen() { return std::string(_origen); }
 int Producto::getIdCategoria() { return _idCategoria; }
-std::string Producto::getDescripcion() { return _descripcion; }
+std::string Producto::getDescripcion() { return std::string(_descripcion); }
 int Producto::getStock() { return _stock; }
 bool Producto::getStatus() { return _status; }
 

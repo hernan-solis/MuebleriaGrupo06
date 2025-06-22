@@ -32,6 +32,7 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="Categoria.h" />
 		<Unit filename="Compra.cpp" />
 		<Unit filename="Compra.h" />
 		<Unit filename="ControladorCompra.cpp" />
@@ -57,7 +58,8 @@
 		<Unit filename="Producto.h" />
 		<Unit filename="Proveedor.cpp" />
 		<Unit filename="Proveedor.h" />
-		<Unit filename="categoria.h" />
+		<Unit filename="Validador.cpp" />
+		<Unit filename="Validador.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
