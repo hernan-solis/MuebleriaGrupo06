@@ -176,9 +176,22 @@ void cargarCompraConDetalle(ControladorCompra &ccomp,
         DetalleCompra detalle(idCompra, idProducto, cantidad, importe);
         if (!cdetalle.Guardar(detalle)) {
             cout << "Error al guardar el detalle de compra.\n";
-        } else {
+                } else {
             cout << "Detalle guardado correctamente.\n";
+
+            // !!!!!!!!!!!!!!! ACTUALIZAR STOCK DEL PRODUCTO
+            int posProd = cprod.Buscar(idProducto);
+            if (posProd != -1) {
+                Producto prod = cprod.Leer(posProd);
+                int nuevoStock = prod.getStock() + cantidad;
+                prod.setStock(nuevoStock);
+                cprod.Guardar(prod, posProd);
+                cout << "Stock del producto actualizado: " << nuevoStock << endl;
+            } else {
+                cout << "No se encontró el producto para actualizar el stock." << endl;
+            }
         }
+
 
         delete[] listaProd;
 
@@ -192,6 +205,67 @@ void cargarCompraConDetalle(ControladorCompra &ccomp,
     cin.get();
 }
 
+
+void mostrarCompraConDetalle(Compra &compra,
+                            ControladorProveedor &cprov,
+                            ControladorDetalleCompra &cdetalle,
+                            ControladorProducto &cprod) {
+
+    // Mostrar datos básicos
+    cout << "ID Compra: " << compra.getIdCompra() << endl;
+
+    // Buscar proveedor para mostrar nombre
+    int idProv = compra.getIdProveedor();
+    int posProv = cprov.Buscar(idProv);
+    if (posProv != -1) {
+        Proveedor prov = cprov.Leer(posProv);
+        cout << "Proveedor: " << prov.getNombre() << endl;
+    } else {
+        cout << "Proveedor: (No encontrado)" << endl;
+    }
+
+    // Fecha
+    Fecha fecha = compra.getFechaCompra();
+    cout << "Fecha: " << fecha.getDia() << "/" << fecha.getMes() << "/" << fecha.getAnio() << endl;
+
+    // Mostrar detalle
+    int cantDetalles = cdetalle.CantidadRegistros();
+
+    // Leer todos los detalles
+    DetalleCompra *detalles = new DetalleCompra[cantDetalles];
+    cdetalle.Leer(cantDetalles, detalles);
+
+    cout << "\nDetalle de la compra:\n";
+    cout << "Producto  Cantidad  Importe Unitario  Subtotal\n";
+
+    float totalCompra = 0;
+
+    for (int i = 0; i < cantDetalles; i++) {
+        if (detalles[i].getIdCompra() == compra.getIdCompra()) {
+            // Obtener producto para mostrar nombre
+            int idProd = detalles[i].getIdProducto();
+            int posProd = cprod.Buscar(idProd);
+            string nombreProd = "(No encontrado)";
+            if (posProd != -1) {
+                Producto prod = cprod.Leer(posProd);
+                nombreProd = prod.getNombre();
+            }
+
+            int cantidad = detalles[i].getCantidad();
+            float importeUnitario = detalles[i].getImporteUnitario();
+            float subtotal = cantidad * importeUnitario;
+            totalCompra += subtotal;
+
+            cout <<  nombreProd << "        " << cantidad << "          " << importeUnitario << "            " << subtotal << endl;
+        }
+    }
+
+
+
+    cout << "\nTotal compra: $" << totalCompra << endl;
+
+    delete[] detalles;
+}
 
 
 void mostrarComprasTabla(Compra* lista, int cantidad) {
@@ -287,19 +361,13 @@ void menuCompras(ControladorCompra &ccomp,
                 cin >> idBuscar; cin.ignore();
 
                 int pos = ccomp.Buscar(idBuscar);
-                if (pos != -1) {
+               if (pos != -1) {
                     Compra cBuscado = ccomp.Leer(pos);
-                    cout << "Compra encontrada:" << endl;
-
-                    // Mostrar datos de la compra
-                    Fecha fecha = cBuscado.getFechaCompra();
-                    cout << "ID: " << idBuscar << endl;
-                    cout << "Proveedor: " << cBuscado.getIdProveedor() << endl;
-                    cout << "Fecha: " << fecha.getDia() << "/" << fecha.getMes() << "/" << fecha.getAnio() << endl;
-                   //  cout << "Total: $" << cBuscado.getTotal() << endl;
+                    mostrarCompraConDetalle(cBuscado, cprov, cdetalle, cprod);
                 } else {
                     cout << "Compra no encontrada." << endl;
                 }
+
                 cout << "\nPresione Enter para continuar...";
                 cin.get();
                 break;
