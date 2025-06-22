@@ -395,22 +395,54 @@ void menuCompras(ControladorCompra &ccomp,
                 cin.get();
                 break;
             }
-            case 4: {
+
+
+          case 4: {
                 limpiarPantalla();
                 int idEliminar;
-                cout << "Ingrese ID de la compra a eliminar: ";
+                cout << "Si elimina una compra variará el stock del prodcuto. Si está de acuerdo, ingrese ID de la compra a eliminar: ";
                 cin >> idEliminar;
                 cin.ignore();
 
-                if (ccomp.Eliminar(idEliminar)) {
-                    cout << "Compra eliminada correctamente." << endl;
+                int posCompra = ccomp.Buscar(idEliminar);
+                if (posCompra == -1) {
+                    cout << "Compra no encontrada. Verifique el ID." << endl;
                 } else {
-                    cout << "No se pudo eliminar la compra. Verifique que el ID exista." << endl;
+                    // 1- Tenemos que ñeer detalles de esa compra para restar el stock
+                    int cantDetalles = cdetalle.CantidadRegistros();
+                    DetalleCompra* detalles = new DetalleCompra[cantDetalles];
+                    cdetalle.Leer(cantDetalles, detalles);
+
+                    // 2. Restar el stock
+                    for (int i = 0; i < cantDetalles; i++) {
+                        if (detalles[i].getIdCompra() == idEliminar) {
+                            int idProd = detalles[i].getIdProducto();
+                            int cantidad = detalles[i].getCantidad(); // necesitamos guardar la cantidad de cada producto de esa compra para restarle al stock del producto
+
+                            int posProd = cprod.Buscar(idProd);
+                            if (posProd != -1) {
+                                Producto prod = cprod.Leer(posProd);
+                                int nuevoStock = prod.getStock() - cantidad;
+                                prod.setStock(nuevoStock);
+                                cprod.Guardar(prod, posProd);
+                            }
+                        }
+                    }
+                    delete[] detalles;
+
+                    // 3. Eliminar la compra
+                    if (ccomp.Eliminar(idEliminar)) {
+                        cout << "Compra eliminada correctamente y stock actualizado." << endl;
+                    } else {
+                        cout << "No se pudo eliminar la compra." << endl;
+                    }
                 }
+
                 cout << "\nPresione Enter para continuar...";
                 cin.get();
                 break;
             }
+
             case 0:
                 cout << "Saliendo del menu de compras..." << endl;
                 break;
