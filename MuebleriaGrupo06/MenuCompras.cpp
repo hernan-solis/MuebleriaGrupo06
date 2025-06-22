@@ -43,7 +43,9 @@ void cargarCompraConDetalle(ControladorCompra &ccomp,
     cprov.Leer(cantProv, listaProv);
     cout << "Proveedores disponibles:\n";
     for (int i = 0; i < cantProv; i++) {
-        cout << listaProv[i].getIdProveedor() << ". " << listaProv[i].getNombre() << "\n";
+        if(listaProv[i].getStatus() == true){
+            cout << listaProv[i].getIdProveedor() << ". " << listaProv[i].getNombre() << "\n";
+        }
     }
 
     int idProveedor;
