@@ -198,7 +198,7 @@ void cargarCompraConDetalle(ControladorCompra &ccomp,
         cout << "¿Desea agregar otro producto? (s/n): ";
         cin >> opcion;
         cin.ignore();
-    } while (opcion == 's' || opcion == 'S');
+    } while (opcion == 's' || opcion == 'S'); // agregue las s en mayus y min para q cualquiera de las dos ande :)
 
     cout << "Compra con detalle cargada exitosamente.\n";
     cout << "Presione Enter para continuar...";
