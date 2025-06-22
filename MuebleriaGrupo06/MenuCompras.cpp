@@ -9,6 +9,7 @@
 #include "ControladorCategoriaProducto.h"
 #include "MenuProveedores.h"
 #include "MenuProductos.h"
+#include "Validador.h"
 
 using namespace std;
 
@@ -83,9 +84,16 @@ void cargarCompraConDetalle(ControladorCompra &ccomp,
     // 2) Pedir fecha compra
     Fecha fecha;
     int d, m, a;
+    do {
     cout << "Ingrese fecha de compra (dia mes anio): ";
     cin >> d >> m >> a;
     cin.ignore();
+
+    if (!Validador::esFechaValida(d,m,a)) {
+        cout << "Fecha invalida. Intente nuevamente.\n \n";
+    }
+    } while (!Validador::esFechaValida(d, m, a));
+
     fecha.setDia(d);
     fecha.setMes(m);
     fecha.setAnio(a);
@@ -133,7 +141,9 @@ void cargarCompraConDetalle(ControladorCompra &ccomp,
         cprod.Leer(cantProd, listaProd);
         cout << "Productos disponibles:\n";
         for (int i = 0; i < cantProd; i++) {
-            cout << listaProd[i].getIdProducto() << ". " << listaProd[i].getNombre() << "\n";
+            if(listaProd[i].getStatus() == true){
+               cout << listaProd[i].getIdProducto() << ". " << listaProd[i].getNombre() << "\n";
+            }
         }
 
         int idProducto;
@@ -151,7 +161,9 @@ void cargarCompraConDetalle(ControladorCompra &ccomp,
                 cprod.Leer(cantProd, listaProd);
                 cout << "Productos actualizados:\n";
                 for (int i = 0; i < cantProd; i++) {
-                    cout << listaProd[i].getIdProducto() << ". " << listaProd[i].getNombre() << "\n";
+                    if(listaProd[i].getStatus() == true){
+                      cout << listaProd[i].getIdProducto() << ". " << listaProd[i].getNombre() << "\n";
+                    }
                 }
             } else {
                 for (int i = 0; i < cantProd; i++) {

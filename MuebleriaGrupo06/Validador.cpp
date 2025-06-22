@@ -86,7 +86,22 @@
 
     }
 
+    // Valida si el año es bisiesto
+    bool Validador::esBisiesto(int anio) {
+        return (anio % 4 == 0 && anio % 100 != 0) || (anio % 400 == 0);
+    }
 
+    // Valida Fecha Valida
+    bool Validador::esFechaValida(int d, int m, int a) {
+        if (a < 1900 || a > 2100) return false;
+        if (m < 1 || m > 12) return false;
+        if (d < 1) return false;
 
+        int diasPorMes[] = { 31,28,31,30,31,30,31,31,30,31,30,31 };
+
+        if (esBisiesto(a)) diasPorMes[1] = 29; // febrero
+
+        return d <= diasPorMes[m - 1];
+    }
 
 

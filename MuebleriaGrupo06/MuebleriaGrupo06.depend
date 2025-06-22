@@ -264,7 +264,7 @@
 1750544476 c:\users\hernán\documents\proyectos\c++\progra 2\muebleriagrupo06\muebleriagrupo06\categoria.h
 	<string>
 
-1750605236 source:c:\users\hernán\documents\proyectos\c++\progra 2\muebleriagrupo06\muebleriagrupo06\menucompras.cpp
+1750606473 source:c:\users\hernán\documents\proyectos\c++\progra 2\muebleriagrupo06\muebleriagrupo06\menucompras.cpp
 	<iostream>
 	<iomanip>
 	<string>
@@ -277,7 +277,7 @@
 	"MenuProveedores.h"
 	"MenuProductos.h"
 
-1750604028 source:c:\users\hernán\documents\proyectos\c++\progra 2\muebleriagrupo06\muebleriagrupo06\menuproductos.cpp
+1750606872 source:c:\users\hernán\documents\proyectos\c++\progra 2\muebleriagrupo06\muebleriagrupo06\menuproductos.cpp
 	<iostream>
 	<iomanip>
 	<string>
@@ -294,13 +294,13 @@
 	"Menu.h"
 	"Validador.h"
 
-1750604028 source:c:\users\hernán\documents\proyectos\c++\progra 2\muebleriagrupo06\muebleriagrupo06\validador.cpp
+1750608917 source:c:\users\hernán\documents\proyectos\c++\progra 2\muebleriagrupo06\muebleriagrupo06\validador.cpp
 	"Validador.h"
 	<iostream>
 	<cstring>
 	"ControladorProveedor.h"
 
-1750604028 c:\users\hernán\documents\proyectos\c++\progra 2\muebleriagrupo06\muebleriagrupo06\validador.h
+1750608332 c:\users\hernán\documents\proyectos\c++\progra 2\muebleriagrupo06\muebleriagrupo06\validador.h
 	<string>
 
 1750550143 n

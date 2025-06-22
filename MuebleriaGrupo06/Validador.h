@@ -16,6 +16,11 @@ class Validador {
     // Valida CuitCuit
     static bool validarCuitCuil( std::string texto);
 
+    // Valida si el año es bisiesto
+    static bool esBisiesto(int anio);
+
+    // Valida Fecha Valida
+    static bool esFechaValida(int d, int m, int a);
 
     // Verifica si un número entero está dentro de un rango [min, max]
     static bool numeroEnRango(int numero, int minimo, int maximo);
