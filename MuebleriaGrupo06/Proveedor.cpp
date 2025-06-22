@@ -26,19 +26,19 @@ int Proveedor::getIdProveedor(){
 }
 
 std::string Proveedor::getCuitCuil(){
-    return _cuitCuil;
+    return std::string(_cuitCuil);
 }
 
 std::string Proveedor::getNombre(){
-    return _nombre;
+    return std::string(_nombre);
 }
 
 std::string Proveedor::getTelefono(){
-    return _telefono;
+    return std::string(_telefono);
 }
 
 std::string Proveedor::getDireccion(){
-    return _direccion;
+    return std::string(_direccion);
 }
 
 bool Proveedor::getStatus(){

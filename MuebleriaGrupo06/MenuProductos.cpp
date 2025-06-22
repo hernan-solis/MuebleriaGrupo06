@@ -3,6 +3,7 @@
 #include <string>
 #include "MenuProductos.h"
 #include "Menu.h"
+#include "Validador.h"
 
 using namespace std;
 
@@ -68,12 +69,41 @@ void menuProductos(ControladorProducto &cprod) {
                 string aux;
                 int auxInt;
 
-                cout << "Ingrese nombre: ";
-                getline(cin, aux); p.setNombre(aux);
+                do {
+                    limpiarPantalla();
+                    cout << "Ingrese nombre: ";
+                    getline(cin, aux);
 
-                cout << "Ingrese origen: ";
-                getline(cin, aux); p.setOrigen(aux);
+                    if (!Validador::longitudValida(aux,0,50)) {
+                        cout << endl << endl;
+                        cout << "Nombre muy largo, 50 caracteres maximos...";
+                        cout << endl << endl;
+                        system("pause");
+                        }
 
+                    } while (!Validador::longitudValida(aux,0,50));
+
+                p.setNombre(aux);
+
+
+
+                do {
+                    limpiarPantalla();
+                    cout << "Ingrese origen: ";
+                    getline(cin, aux);
+
+                    if (!Validador::longitudValida(aux,0,50)) {
+                        cout << endl << endl;
+                        cout << "Origen muy largo, 50 caracteres maximos...";
+                        cout << endl << endl;
+                        system("pause");
+                        }
+
+                    } while (!Validador::longitudValida(aux,0,50));
+
+                p.setOrigen(aux);
+
+                // VALIDAR FALTA VALIDAR
                 cout << "Categorías disponibles:\n";
                 cout << "1. Interior\n";
                 cout << "2. Exterior\n";
@@ -90,8 +120,22 @@ void menuProductos(ControladorProducto &cprod) {
                 p.setIdCategoria(auxInt);
 
 
-                cout << "Ingrese descripción: ";
-                getline(cin, aux); p.setDescripcion(aux);
+                do {
+                    limpiarPantalla();
+                    cout << "Ingrese descripcion: ";
+                    getline(cin, aux);
+
+                    if (!Validador::longitudValida(aux,0,100)) {
+                        cout << endl << endl;
+                        cout << "Descripcion muy larga, 100 caracteres maximos...";
+                        cout << endl << endl;
+                        system("pause");
+                        }
+
+                    } while (!Validador::longitudValida(aux,0,100));
+
+                p.setDescripcion(aux);
+
 
                 cout << "Ingrese stock: ";
                 cin >> auxInt; cin.ignore(); p.setStock(auxInt);
