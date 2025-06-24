@@ -56,6 +56,8 @@
 		<Unit filename="MenuCategoriaProducto.h" />
 		<Unit filename="MenuCompras.cpp" />
 		<Unit filename="MenuCompras.h" />
+		<Unit filename="MenuInformes.cpp" />
+		<Unit filename="MenuInformes.h" />
 		<Unit filename="MenuProductos.cpp" />
 		<Unit filename="MenuProductos.h" />
 		<Unit filename="MenuProveedores.cpp" />

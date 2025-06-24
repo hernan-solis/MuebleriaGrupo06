@@ -239,12 +239,13 @@
 	"ControladorCategoriaProducto.h"
 	"ControladorDetalleCompra.h"
 
-1750638279 source:c:\users\hernán\documents\proyectos\c++\progra 2\muebleriagrupo06\muebleriagrupo06\menu.cpp
+1750728058 source:c:\users\hernán\documents\proyectos\c++\progra 2\muebleriagrupo06\muebleriagrupo06\menu.cpp
 	<iostream>
 	"Menu.h"
 	"MenuProveedores.h"
 	"MenuCompras.h"
 	"MenuProductos.h"
+	"MenuInformes.h"
 
 1750544476 c:\users\hernán\documents\proyectos\c++\progra 2\muebleriagrupo06\muebleriagrupo06\menuproveedores.h
 	"ControladorProveedor.h"
@@ -266,7 +267,7 @@
 1750544476 c:\users\hernán\documents\proyectos\c++\progra 2\muebleriagrupo06\muebleriagrupo06\categoria.h
 	<string>
 
-1750638796 source:c:\users\hernán\documents\proyectos\c++\progra 2\muebleriagrupo06\muebleriagrupo06\menucompras.cpp
+1750724502 source:c:\users\hernán\documents\proyectos\c++\progra 2\muebleriagrupo06\muebleriagrupo06\menucompras.cpp
 	<iostream>
 	<iomanip>
 	<string>
@@ -355,4 +356,15 @@
 
 1750604028 c:\users\hernán\documents\proyectos\c++\progra 2\muebleriagrupo06\muebleriagrupo06\menucategoriaproducto.h
 	"ControladorCategoriaProducto.h"
+
+1750728014 source:c:\users\hernán\documents\proyectos\c++\progra 2\muebleriagrupo06\muebleriagrupo06\menuinformes.cpp
+	<iostream>
+	"MenuInformes.h"
+
+1750728292 c:\users\hernán\documents\proyectos\c++\progra 2\muebleriagrupo06\muebleriagrupo06\menuinformes.h
+	"ControladorProveedor.h"
+	"ControladorCompra.h"
+	"ControladorProducto.h"
+	"ControladorCategoriaProducto.h"
+	"ControladorDetalleCompra.h"
 

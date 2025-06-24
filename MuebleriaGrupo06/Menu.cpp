@@ -3,6 +3,7 @@
 #include "MenuProveedores.h"
 #include "MenuCompras.h"
 #include "MenuProductos.h"
+#include "MenuInformes.h"
 
 
 using namespace std;
@@ -42,25 +43,12 @@ void iniciarMenu(ControladorProveedor &cprov, ControladorCompra &ccomp, Controla
             case 3:
                 limpiarPantalla();
                 menuProductos(cprod, ctrlCategorias);
+                break;
             case 4:
                 {
-
                 limpiarPantalla();
-                cout << "\nMenu informes en construccion!" << endl;
-
-
-                ControladorDetalleCompra cdetalle("detallecompras.dat");
-                int cantidadRegistros = cdetalle.CantidadRegistros();
-                DetalleCompra* lista = new DetalleCompra[cantidadRegistros];
-
-                cdetalle.Leer(cantidadRegistros,lista);
-
-                for(int x = 0 ; x < cantidadRegistros ; x++){
-                    cout << lista[x].toCSV() << endl;
-                }
-
-                system("pause");
-
+                menuInformes(cprov,ccomp, cprod, ctrlCategorias, cdetalle );
+               // menuInformes();
                 }
                 break;
             case 0:
