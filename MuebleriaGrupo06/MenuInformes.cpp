@@ -14,7 +14,6 @@ void menuInformes(ControladorProveedor &cprov, ControladorCompra &ccomp, Control
     do {
         limpiarPantallaInformes();
         cout << "\n=====================================================\n";
-        cout << "\n           SISTEMA DE GESTION DE MUEBLERIA           \n";
         cout << "\n                   MENU INFORMES                     \n";
         cout << "\n=====================================================\n";
         cout << "\nSeleccione una opcion:\n";
