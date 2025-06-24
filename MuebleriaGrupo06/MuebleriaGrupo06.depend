@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1750604028 source:c:\users\hernán\documents\proyectos\c++\progra 2\muebleriagrupo06\muebleriagrupo06\main.cpp
+1750638069 source:c:\users\hernán\documents\proyectos\c++\progra 2\muebleriagrupo06\muebleriagrupo06\main.cpp
 	"Menu.h"
 	"ControladorProveedor.h"
 	"ControladorCompra.h"
@@ -239,7 +239,7 @@
 	"ControladorCategoriaProducto.h"
 	"ControladorDetalleCompra.h"
 
-1750604028 source:c:\users\hernán\documents\proyectos\c++\progra 2\muebleriagrupo06\muebleriagrupo06\menu.cpp
+1750638279 source:c:\users\hernán\documents\proyectos\c++\progra 2\muebleriagrupo06\muebleriagrupo06\menu.cpp
 	<iostream>
 	"Menu.h"
 	"MenuProveedores.h"
@@ -266,7 +266,7 @@
 1750544476 c:\users\hernán\documents\proyectos\c++\progra 2\muebleriagrupo06\muebleriagrupo06\categoria.h
 	<string>
 
-1750606473 source:c:\users\hernán\documents\proyectos\c++\progra 2\muebleriagrupo06\muebleriagrupo06\menucompras.cpp
+1750638796 source:c:\users\hernán\documents\proyectos\c++\progra 2\muebleriagrupo06\muebleriagrupo06\menucompras.cpp
 	<iostream>
 	<iomanip>
 	<string>
@@ -278,6 +278,7 @@
 	"ControladorCategoriaProducto.h"
 	"MenuProveedores.h"
 	"MenuProductos.h"
+	"Validador.h"
 
 1750606872 source:c:\users\hernán\documents\proyectos\c++\progra 2\muebleriagrupo06\muebleriagrupo06\menuproductos.cpp
 	<iostream>

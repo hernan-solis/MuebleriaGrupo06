@@ -43,8 +43,25 @@ void iniciarMenu(ControladorProveedor &cprov, ControladorCompra &ccomp, Controla
                 limpiarPantalla();
                 menuProductos(cprod, ctrlCategorias);
             case 4:
+                {
+
                 limpiarPantalla();
                 cout << "\nMenu informes en construccion!" << endl;
+
+
+                ControladorDetalleCompra cdetalle("detallecompras.dat");
+                int cantidadRegistros = cdetalle.CantidadRegistros();
+                DetalleCompra* lista = new DetalleCompra[cantidadRegistros];
+
+                cdetalle.Leer(cantidadRegistros,lista);
+
+                for(int x = 0 ; x < cantidadRegistros ; x++){
+                    cout << lista[x].toCSV() << endl;
+                }
+
+                system("pause");
+
+                }
                 break;
             case 0:
                 limpiarPantalla();

@@ -259,7 +259,10 @@ void mostrarCompraConDetalle(Compra &compra,
     cdetalle.Leer(cantDetalles, detalles);
 
     cout << "\nDetalle de la compra:\n";
-    cout << "Producto  Cantidad  Importe Unitario  Subtotal\n";
+    cout << left << setw(20) << "Producto"
+     << right << setw(10) << "Cantidad"
+     << right << setw(18) << "Unitario"
+     << right << setw(15) << "Subtotal" << endl;
 
     float totalCompra = 0;
 
@@ -279,13 +282,16 @@ void mostrarCompraConDetalle(Compra &compra,
             float subtotal = cantidad * importeUnitario;
             totalCompra += subtotal;
 
-            cout <<  nombreProd << "        " << cantidad << "          " << importeUnitario << "            " << subtotal << endl;
+            cout << left << setw(20) << nombreProd
+            << right << setw(10) << cantidad
+            << right << setw(18) << fixed << setprecision(2) << importeUnitario
+            << right << setw(15) << fixed << setprecision(2) << subtotal << endl;
         }
     }
 
 
 
-    cout << "\nTotal compra: $" << totalCompra << endl;
+    cout << "\nTotal compra: $" << fixed << setprecision(2) << totalCompra << endl;
 
     delete[] detalles;
 }
@@ -400,7 +406,7 @@ void menuCompras(ControladorCompra &ccomp,
           case 4: {
                 limpiarPantalla();
                 int idEliminar;
-                cout << "Si elimina una compra variará el stock del prodcuto. Si está de acuerdo, ingrese ID de la compra a eliminar: ";
+                cout << "Si elimina una compra variara el stock del producto. Si esta de acuerdo, ingrese ID de la compra a eliminar: ";
                 cin >> idEliminar;
                 cin.ignore();
 
