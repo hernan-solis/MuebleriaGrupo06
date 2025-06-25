@@ -17,3 +17,7 @@ std::string CategoriaProducto::getNombre() { return _nombre; }
 
 void CategoriaProducto::setIdCategoria(int idCategoria) { _idCategoria = idCategoria; }
 void CategoriaProducto::setNombre(std::string nombre) { strcpy(_nombre, nombre.c_str()); }
+
+std::string CategoriaProducto::toCSV() {
+    return std::to_string(_idCategoria) + "," + std::string(_nombre);
+}

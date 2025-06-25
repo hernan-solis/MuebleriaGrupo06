@@ -17,7 +17,7 @@ void menuInformes(ControladorProveedor &cprov, ControladorCompra &ccomp, Control
         cout << "\n                   MENU INFORMES                     \n";
         cout << "\n=====================================================\n";
         cout << "\nSeleccione una opcion:\n";
-        cout << "1. Informe 1\n";
+        cout << "1. Stock x Categoria - Totales\n";
         cout << "2. Informe 2\n";
         cout << "3. Informe 3\n";
         cout << "4. Informe 4\n";
@@ -30,23 +30,71 @@ void menuInformes(ControladorProveedor &cprov, ControladorCompra &ccomp, Control
             case 1:{
 
                 limpiarPantallaInformes();
-                cout << "INFORME" << endl;
+                cout << "\n=====================================================\n";
+                cout << "\n         Stock x Categoria - Totales                 \n";
+                cout << "\n=====================================================\n";
 
-                cout << "\nMenu informes en construccion!" << endl;
 
 
-                ControladorDetalleCompra cdetalle("detallecompras.dat");
-                int cantidadRegistros = cdetalle.CantidadRegistros();
-                DetalleCompra* lista = new DetalleCompra[cantidadRegistros];
-
-                cdetalle.Leer(cantidadRegistros,lista);
-
-                for(int x = 0 ; x < cantidadRegistros ; x++){
-                    cout << lista[x].toCSV() << endl;
+                int cantidadRegistrosDetalle = cdetalle.CantidadRegistros();
+                DetalleCompra* listaDetalle = new DetalleCompra[cantidadRegistrosDetalle];
+                cdetalle.Leer(cantidadRegistrosDetalle,listaDetalle);
+                for(int x = 0 ; x < cantidadRegistrosDetalle ; x++){
+                    cout << listaDetalle[x].toCSV() << endl;
                 }
+                cout << endl;
+
+                int cantidadRegistrosCompras = ccomp.CantidadRegistros();
+                Compra* listaCompra = new Compra[cantidadRegistrosCompras];
+                ccomp.Leer(cantidadRegistrosCompras,listaCompra);
+                for(int x = 0 ; x < cantidadRegistrosCompras ; x++){
+                    if(listaCompra[x].getStatus()){
+                        cout << listaCompra[x].toCSV() << endl;
+                    }
+                }
+                cout << endl;
+
+                int cantidadRegistrosProductos = cprod.CantidadRegistros();
+                Producto* listaProductos = new Producto[cantidadRegistrosProductos];
+                cprod.Leer(cantidadRegistrosProductos,listaProductos);
+                for(int x = 0 ; x < cantidadRegistrosProductos ; x++){
+                    if(listaProductos[x].getStatus()){
+                        cout << listaProductos[x].toCSV() << endl;
+                    }
+                }
+                cout << endl;
+
+                int cantidadRegistrosCategoria = ctrlCategorias.CantidadRegistros();
+                CategoriaProducto* listaCategoria = new CategoriaProducto[cantidadRegistrosCategoria];
+                ctrlCategorias.Leer(cantidadRegistrosCategoria,listaCategoria);
+                for(int x = 0 ; x < cantidadRegistrosCategoria ; x++){
+
+                cout << listaCategoria[x].toCSV() << endl;
+                }
+                cout << endl;
+
+                int cantidadRegistrosProveedores = cprov.CantidadRegistros();
+                Proveedor* listaProveedores = new Proveedor[cantidadRegistrosProveedores];
+                cprov.Leer(cantidadRegistrosProveedores,listaProveedores);
+                for(int x = 0 ; x < cantidadRegistrosProveedores ; x++){
+                    if(listaProveedores[x].getStatus()){
+                        cout << listaProveedores[x].toCSV() << endl;
+                    }
+                }
+                cout << endl;
+
+
+
+
+                delete[]listaDetalle;
+                delete[]listaCompra;
+                delete[]listaProductos;
+                delete[]listaCategoria;
+                delete[]listaProveedores;
+
+
 
                 system("pause");
-
                 }
                 break;
             case 2:{

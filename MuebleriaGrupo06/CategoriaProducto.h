@@ -15,4 +15,5 @@ public:
 
     void setIdCategoria(int idCategoria);
     void setNombre(std::string nombre);
+    std::string toCSV();
 };
