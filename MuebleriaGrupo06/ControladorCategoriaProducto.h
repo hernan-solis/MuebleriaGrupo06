@@ -16,4 +16,5 @@ public:
     CategoriaProducto Leer(int posicion);
     void Leer(int cantidad, CategoriaProducto *vec);
     int CantidadRegistros();
+    bool ActualizarNombre(int idCategoria, std::string nuevoNombre);
 };

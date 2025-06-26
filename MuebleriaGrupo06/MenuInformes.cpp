@@ -87,12 +87,25 @@ void menuInformes(ControladorProveedor &cprov, ControladorCompra &ccomp, Control
 
 
                 int acumuladorParcial = 0;
-                int acumuladorTotal =0;
+                int acumuladorTotal = 0;
 
                 //RECORRE CADA CATEGORIA
                 for(int x = 0 ; x < cantidadRegistrosCategoria ; x++){
 
-                cout << listaCategoria[x].toCSV() << endl;
+                cout << "\n=====================================================\n";
+                cout << "ID Categ: " << listaCategoria[x].getIdCategoria() << " - " << listaCategoria[x].getNombre();
+                cout << "\n=====================================================\n";
+
+                    // RECORRO CADA PRODUCTO
+                    for(int y =0 ; y < cantidadRegistrosProductos ; y++){
+                       if(listaProductos[y].getIdCategoria() == listaCategoria[x].getIdCategoria()){
+                        cout << "ID Prod: " << listaProductos[y].getIdProducto()<< " - " << listaProductos[y].getNombre() << "- Cant: " << listaProductos[y].getStock()<< endl;
+                       }
+                    }
+
+
+
+
                 }
 
 

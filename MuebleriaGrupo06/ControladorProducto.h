@@ -28,5 +28,5 @@
       bool EliminarFisico(int idProducto);  // baja física
 
         // Funcion para actualizar stock
-      bool actualizarStock(int idProducto, int nuevoStock);
+      bool ActualizarStock(int idProducto, int nuevoStock);
   };

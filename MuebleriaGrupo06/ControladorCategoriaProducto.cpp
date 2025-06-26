@@ -103,3 +103,14 @@ int ControladorCategoriaProducto::CantidadRegistros() {
     fclose(pArchivo);
     return cantidad;
 }
+
+
+bool ControladorCategoriaProducto::ActualizarNombre(int idCategoria, std::string nuevoNombre) {
+    int pos = Buscar(idCategoria);
+    if (pos == -1) return false;
+
+    CategoriaProducto cat = Leer(pos);
+    cat.setNombre(nuevoNombre);
+
+    return Guardar(cat, pos);
+}

@@ -150,7 +150,7 @@ bool ControladorProducto::EliminarFisico(int idProducto) {
     }
 
 //Actualizar stock
-bool ControladorProducto::actualizarStock(int idProducto, int nuevoStock) {
+bool ControladorProducto::ActualizarStock(int idProducto, int nuevoStock) {
     int pos = Buscar(idProducto);
     if (pos == -1) return false;  // No se encontró el producto
 
