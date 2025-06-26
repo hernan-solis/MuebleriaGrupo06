@@ -104,4 +104,10 @@
         return d <= diasPorMes[m - 1];
     }
 
+    // Valida Fecha Valida Mes Año
+    bool Validador::esFechaValidaMA(int m, int a) {
+        if (a < 1900 || a > 2100) return false;
+        if (m < 1 || m > 12) return false;
+        return true;
+    }
 

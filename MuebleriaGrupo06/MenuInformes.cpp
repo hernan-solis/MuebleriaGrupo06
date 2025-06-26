@@ -1,5 +1,7 @@
 #include <iostream>
 #include "MenuInformes.h"
+#include "Validador.h"
+#include <iomanip>  // <---- esto es necesario para fixed y setprecision - muestra mejor los float
 
 
 using namespace std;
@@ -18,7 +20,7 @@ void menuInformes(ControladorProveedor &cprov, ControladorCompra &ccomp, Control
         cout << "\n=====================================================\n";
         cout << "\nSeleccione una opcion:\n";
         cout << "1. Stock x Categoria - Totales\n";
-        cout << "2. Informe 2\n";
+        cout << "2. Top 3 Proveedores $ mm aaaa\n";
         cout << "3. Informe 3\n";
         cout << "4. Informe 4\n";
         cout << "0. Salir\n";
@@ -36,6 +38,7 @@ void menuInformes(ControladorProveedor &cprov, ControladorCompra &ccomp, Control
 
                 // RELACIONA 2 TABLAS
 
+                // Armo arrays para trabajar
                 int cantidadRegistrosProductos = cprod.CantidadRegistros();
                 Producto* listaProductos = new Producto[cantidadRegistrosProductos];
                 cprod.Leer(cantidadRegistrosProductos,listaProductos);
@@ -57,7 +60,7 @@ void menuInformes(ControladorProveedor &cprov, ControladorCompra &ccomp, Control
                     // RECORRO CADA PRODUCTO
                     for(int y =0 ; y < cantidadRegistrosProductos ; y++){
                        if(listaProductos[y].getStatus() && listaProductos[y].getIdCategoria() == listaCategoria[x].getIdCategoria()){
-                        cout << "ID Prod: " << listaProductos[y].getIdProducto()<< " - " << listaProductos[y].getNombre() << "- Cant: " << listaProductos[y].getStock()<< endl;
+                        cout << "ID Prod: " << listaProductos[y].getIdProducto()<< " - " << listaProductos[y].getNombre() << " - Cant: " << listaProductos[y].getStock()<< endl;
                         acumuladorParcial += listaProductos[y].getStock();
                        }
                     }
@@ -82,72 +85,111 @@ void menuInformes(ControladorProveedor &cprov, ControladorCompra &ccomp, Control
                 break;
             case 2:{
 
-
                 limpiarPantallaInformes();
                 cout << "\n=====================================================\n";
-                cout << "\n                    INFORME                          \n";
-                cout << "\n=====================================================\n";
+                cout << "\n           Top 3 Proveedores $ mm aaaa               \n";
+                cout << "\n=====================================================\n" << endl << endl;
 
-                /*
+
+                // Armo arrays para trabajar
 
                 int cantidadRegistrosDetalle = cdetalle.CantidadRegistros();
                 DetalleCompra* listaDetalle = new DetalleCompra[cantidadRegistrosDetalle];
                 cdetalle.Leer(cantidadRegistrosDetalle,listaDetalle);
-                for(int x = 0 ; x < cantidadRegistrosDetalle ; x++){
-                    cout << listaDetalle[x].toCSV() << endl;
-                }
-                cout << endl;
 
                 int cantidadRegistrosCompras = ccomp.CantidadRegistros();
                 Compra* listaCompra = new Compra[cantidadRegistrosCompras];
                 ccomp.Leer(cantidadRegistrosCompras,listaCompra);
-                for(int x = 0 ; x < cantidadRegistrosCompras ; x++){
-                    if(listaCompra[x].getStatus()){
-                        cout << listaCompra[x].toCSV() << endl;
-                    }
-                }
-                cout << endl;
 
                 int cantidadRegistrosProductos = cprod.CantidadRegistros();
                 Producto* listaProductos = new Producto[cantidadRegistrosProductos];
                 cprod.Leer(cantidadRegistrosProductos,listaProductos);
-                for(int x = 0 ; x < cantidadRegistrosProductos ; x++){
-                    if(listaProductos[x].getStatus()){
-                        cout << listaProductos[x].toCSV() << endl;
-                    }
-                }
-                cout << endl;
-
-                int cantidadRegistrosCategoria = ctrlCategorias.CantidadRegistros();
-                CategoriaProducto* listaCategoria = new CategoriaProducto[cantidadRegistrosCategoria];
-                ctrlCategorias.Leer(cantidadRegistrosCategoria,listaCategoria);
-                for(int x = 0 ; x < cantidadRegistrosCategoria ; x++){
-
-                cout << listaCategoria[x].toCSV() << endl;
-                }
-                cout << endl;
 
                 int cantidadRegistrosProveedores = cprov.CantidadRegistros();
                 Proveedor* listaProveedores = new Proveedor[cantidadRegistrosProveedores];
                 cprov.Leer(cantidadRegistrosProveedores,listaProveedores);
-                for(int x = 0 ; x < cantidadRegistrosProveedores ; x++){
-                    if(listaProveedores[x].getStatus()){
-                        cout << listaProveedores[x].toCSV() << endl;
+
+                // declaro acumuladores y tambien los inicializo en 0
+                float* listaAcumuladores = new float[cantidadRegistrosProveedores];
+                for (int i = 0; i < cantidadRegistrosProveedores; i++) {
+                listaAcumuladores[i] = 0.0f;
+                }
+
+
+                // ) Pedir fecha
+                Fecha fecha;
+                int m, a;
+                do {
+                cout << "Ingrese mes anio a analizar (mm aaaa): ";
+                cin >> m >> a;
+                cin.ignore();
+
+                if (!Validador::esFechaValidaMA(m,a)) {
+                    cout << "Fecha invalida. Intente nuevamente.\n \n";
+                }
+                } while (!Validador::esFechaValidaMA(m, a));
+
+                // Trabajo los array
+
+                // Recorro las compras
+                for(int x = 0; x < cantidadRegistrosCompras ; x++ ){
+                    if(listaCompra[x].getStatus() &&
+                       listaCompra[x].getFechaCompra().getMes() == m &&
+                       listaCompra[x].getFechaCompra().getAnio() == a){
+
+                        //recorro detalle
+                        for(int y = 0 ; y < cantidadRegistrosDetalle ; y++){
+                            if(listaDetalle[y].getIdCompra() == listaCompra[x].getIdCompra()){
+                                //Recorro prov y acumulo
+                                for( int z = 0 ; z < cantidadRegistrosProveedores; z++){
+                                    if(listaProveedores[z].getIdProveedor() == listaCompra[x].getIdProveedor()){
+                                        listaAcumuladores[z] += listaDetalle[y].getCantidad() * listaDetalle[y].getImporteUnitario();
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
-                cout << endl;
+
+                // Creo array de índices para ordenar sin perder referencia a los proveedores
+                int* indices = new int[cantidadRegistrosProveedores];
+                for (int i = 0; i < cantidadRegistrosProveedores; i++) {
+                    indices[i] = i;
+                }
+
+                // Ordenar por gasto (mayor a menor) usando burbujeo simple
+                for (int i = 0; i < cantidadRegistrosProveedores - 1; i++) {
+                    for (int j = i + 1; j < cantidadRegistrosProveedores; j++) {
+                        if (listaAcumuladores[indices[i]] < listaAcumuladores[indices[j]]) {
+                            int aux = indices[i];
+                            indices[i] = indices[j];
+                            indices[j] = aux;
+                        }
+                    }
+                }
 
 
+                // Muestro el resultado final
+                cout << "\n--- TOP 3 PROVEEDORES DEL MES ---\n" << endl;
+                int mostrados = 0;
+                for (int i = 0; i < cantidadRegistrosProveedores && mostrados < 3; i++) {
+                    int idx = indices[i];
+                    if (listaAcumuladores[idx] > 0 && listaProveedores[idx].getStatus()) {
+                        cout << "- " << listaProveedores[idx].getNombre()
+                             << " - Total: $ " << fixed << setprecision(2) << listaAcumuladores[idx] << endl;
+                        mostrados++;
+                    }
+                }
+
+                cout << endl << endl;
 
 
                 delete[]listaDetalle;
                 delete[]listaCompra;
                 delete[]listaProductos;
-                delete[]listaCategoria;
                 delete[]listaProveedores;
-
-            */
-
+                delete[]listaAcumuladores;
+                delete[] indices;
 
                 system("pause");
                 }
@@ -229,54 +271,35 @@ void menuInformes(ControladorProveedor &cprov, ControladorCompra &ccomp, Control
                 cout << "\n                    INFORME                          \n";
                 cout << "\n=====================================================\n";
 
-                /*
 
+                /*
                 int cantidadRegistrosDetalle = cdetalle.CantidadRegistros();
                 DetalleCompra* listaDetalle = new DetalleCompra[cantidadRegistrosDetalle];
                 cdetalle.Leer(cantidadRegistrosDetalle,listaDetalle);
-                for(int x = 0 ; x < cantidadRegistrosDetalle ; x++){
-                    cout << listaDetalle[x].toCSV() << endl;
-                }
-                cout << endl;
+
 
                 int cantidadRegistrosCompras = ccomp.CantidadRegistros();
                 Compra* listaCompra = new Compra[cantidadRegistrosCompras];
                 ccomp.Leer(cantidadRegistrosCompras,listaCompra);
-                for(int x = 0 ; x < cantidadRegistrosCompras ; x++){
-                    if(listaCompra[x].getStatus()){
-                        cout << listaCompra[x].toCSV() << endl;
-                    }
-                }
-                cout << endl;
+
 
                 int cantidadRegistrosProductos = cprod.CantidadRegistros();
                 Producto* listaProductos = new Producto[cantidadRegistrosProductos];
                 cprod.Leer(cantidadRegistrosProductos,listaProductos);
-                for(int x = 0 ; x < cantidadRegistrosProductos ; x++){
-                    if(listaProductos[x].getStatus()){
-                        cout << listaProductos[x].toCSV() << endl;
-                    }
-                }
-                cout << endl;
+
 
                 int cantidadRegistrosCategoria = ctrlCategorias.CantidadRegistros();
                 CategoriaProducto* listaCategoria = new CategoriaProducto[cantidadRegistrosCategoria];
                 ctrlCategorias.Leer(cantidadRegistrosCategoria,listaCategoria);
-                for(int x = 0 ; x < cantidadRegistrosCategoria ; x++){
 
-                cout << listaCategoria[x].toCSV() << endl;
-                }
-                cout << endl;
 
                 int cantidadRegistrosProveedores = cprov.CantidadRegistros();
                 Proveedor* listaProveedores = new Proveedor[cantidadRegistrosProveedores];
                 cprov.Leer(cantidadRegistrosProveedores,listaProveedores);
-                for(int x = 0 ; x < cantidadRegistrosProveedores ; x++){
-                    if(listaProveedores[x].getStatus()){
-                        cout << listaProveedores[x].toCSV() << endl;
-                    }
-                }
-                cout << endl;
+
+
+
+
 
 
 
@@ -284,13 +307,11 @@ void menuInformes(ControladorProveedor &cprov, ControladorCompra &ccomp, Control
                 delete[]listaDetalle;
                 delete[]listaCompra;
                 delete[]listaProductos;
-                delete[]listaCategoria;
                 delete[]listaProveedores;
 
                 */
 
-
-                system("pause");;
+                system("pause");
                 }
                 break;
             case 0:{

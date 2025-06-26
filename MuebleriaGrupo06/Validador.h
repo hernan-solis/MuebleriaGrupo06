@@ -22,6 +22,9 @@ class Validador {
     // Valida Fecha Valida
     static bool esFechaValida(int d, int m, int a);
 
+    // Valida Fecha Valida Mes Año
+    static bool esFechaValidaMA(int m, int a);
+
     // Verifica si un número entero está dentro de un rango [min, max]
     static bool numeroEnRango(int numero, int minimo, int maximo);
 

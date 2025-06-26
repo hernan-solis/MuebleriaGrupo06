@@ -159,3 +159,15 @@ bool ControladorProveedor::Eliminar(int idProveedor){
         return true;
     }
 }
+
+// ACTUALIZA NOMBRE PROV
+bool ControladorProveedor::ActualizarNombre(int idProveedor, std::string nuevoNombre) {
+    int posicion = Buscar(idProveedor);
+    if (posicion == -1) {
+        return false; // No encontrado
+    }
+
+    Proveedor proveedor = Leer(posicion);
+    proveedor.setNombre(nuevoNombre);
+    return Guardar(proveedor, posicion);
+}

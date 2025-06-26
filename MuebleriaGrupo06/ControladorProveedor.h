@@ -46,5 +46,9 @@ class ControladorProveedor{
 
         // ELIMINACION LOGICA DE 1 REGISTRO
         bool Eliminar(int idProveedor);
+
+        // ACTUALIZA NOMBRE
+        bool ActualizarNombre(int idProveedor, std::string nuevoNombre);
+
 };
 
