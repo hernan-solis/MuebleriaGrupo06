@@ -111,3 +111,11 @@
         return true;
     }
 
+    // Valida Fecha Valida Año
+    bool Validador::esFechaValidaAnio(int a) {
+        if (a < 1900 || a > 2100) return false;
+        return true;
+    }
+
+
+
