@@ -142,7 +142,19 @@ bool ControladorProducto::EliminarFisico(int idProducto) {
         }
     }
 
+
+
     fclose(pArchivo);
     delete[] lista;
     return eliminado;
+    }
+
+//Actualizar stock
+bool ControladorProducto::actualizarStock(int idProducto, int nuevoStock) {
+    int pos = Buscar(idProducto);
+    if (pos == -1) return false;  // No se encontró el producto
+
+    Producto producto = Leer(pos);     // Leemos el producto de esa posición
+    producto.setStock(nuevoStock);     // Le actualizamos el stock
+    return Guardar(producto, pos);     // Guardamos el producto modificado en la misma posición
 }

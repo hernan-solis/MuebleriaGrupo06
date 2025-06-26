@@ -34,7 +34,91 @@ void menuInformes(ControladorProveedor &cprov, ControladorCompra &ccomp, Control
                 cout << "\n         Stock x Categoria - Totales                 \n";
                 cout << "\n=====================================================\n";
 
+                // RELACIONA 4 TABLAS
 
+
+                int cantidadRegistrosDetalle = cdetalle.CantidadRegistros();
+                DetalleCompra* listaDetalle = new DetalleCompra[cantidadRegistrosDetalle];
+                cdetalle.Leer(cantidadRegistrosDetalle,listaDetalle);
+                for(int x = 0 ; x < cantidadRegistrosDetalle ; x++){
+                    cout << listaDetalle[x].toCSV() << endl;
+                }
+                cout << endl;
+
+                int cantidadRegistrosCompras = ccomp.CantidadRegistros();
+                Compra* listaCompra = new Compra[cantidadRegistrosCompras];
+                ccomp.Leer(cantidadRegistrosCompras,listaCompra);
+                for(int x = 0 ; x < cantidadRegistrosCompras ; x++){
+                    if(listaCompra[x].getStatus()){
+                        cout << listaCompra[x].toCSV() << endl;
+                    }
+                }
+                cout << endl;
+
+                int cantidadRegistrosProductos = cprod.CantidadRegistros();
+                Producto* listaProductos = new Producto[cantidadRegistrosProductos];
+                cprod.Leer(cantidadRegistrosProductos,listaProductos);
+                for(int x = 0 ; x < cantidadRegistrosProductos ; x++){
+                    if(listaProductos[x].getStatus()){
+                        cout << listaProductos[x].toCSV() << endl;
+                    }
+                }
+                cout << endl;
+
+                int cantidadRegistrosCategoria = ctrlCategorias.CantidadRegistros();
+                CategoriaProducto* listaCategoria = new CategoriaProducto[cantidadRegistrosCategoria];
+                ctrlCategorias.Leer(cantidadRegistrosCategoria,listaCategoria);
+                for(int x = 0 ; x < cantidadRegistrosCategoria ; x++){
+
+                cout << listaCategoria[x].toCSV() << endl;
+                }
+                cout << endl;
+
+                int cantidadRegistrosProveedores = cprov.CantidadRegistros();
+                Proveedor* listaProveedores = new Proveedor[cantidadRegistrosProveedores];
+                cprov.Leer(cantidadRegistrosProveedores,listaProveedores);
+                for(int x = 0 ; x < cantidadRegistrosProveedores ; x++){
+                    if(listaProveedores[x].getStatus()){
+                        cout << listaProveedores[x].toCSV() << endl;
+                    }
+                }
+                cout << endl;
+
+
+
+                int acumuladorParcial = 0;
+                int acumuladorTotal =0;
+
+                //RECORRE CADA CATEGORIA
+                for(int x = 0 ; x < cantidadRegistrosCategoria ; x++){
+
+                cout << listaCategoria[x].toCSV() << endl;
+                }
+
+
+
+
+
+                delete[]listaDetalle;
+                delete[]listaCompra;
+                delete[]listaProductos;
+                delete[]listaCategoria;
+
+
+
+
+                system("pause");
+                }
+                break;
+            case 2:{
+
+
+                limpiarPantallaInformes();
+                cout << "\n=====================================================\n";
+                cout << "\n                    INFORME                          \n";
+                cout << "\n=====================================================\n";
+
+                /*
 
                 int cantidadRegistrosDetalle = cdetalle.CantidadRegistros();
                 DetalleCompra* listaDetalle = new DetalleCompra[cantidadRegistrosDetalle];
@@ -92,27 +176,151 @@ void menuInformes(ControladorProveedor &cprov, ControladorCompra &ccomp, Control
                 delete[]listaCategoria;
                 delete[]listaProveedores;
 
+            */
 
 
-                system("pause");
-                }
-                break;
-            case 2:{
-                limpiarPantallaInformes();
-                cout << "INFORME" << endl;
                 system("pause");
                 }
                 break;
             case 3:{
+
                 limpiarPantallaInformes();
-                cout << "INFORME" << endl;
+                cout << "\n=====================================================\n";
+                cout << "\n                    INFORME                          \n";
+                cout << "\n=====================================================\n";
+
+                /*
+
+                int cantidadRegistrosDetalle = cdetalle.CantidadRegistros();
+                DetalleCompra* listaDetalle = new DetalleCompra[cantidadRegistrosDetalle];
+                cdetalle.Leer(cantidadRegistrosDetalle,listaDetalle);
+                for(int x = 0 ; x < cantidadRegistrosDetalle ; x++){
+                    cout << listaDetalle[x].toCSV() << endl;
+                }
+                cout << endl;
+
+                int cantidadRegistrosCompras = ccomp.CantidadRegistros();
+                Compra* listaCompra = new Compra[cantidadRegistrosCompras];
+                ccomp.Leer(cantidadRegistrosCompras,listaCompra);
+                for(int x = 0 ; x < cantidadRegistrosCompras ; x++){
+                    if(listaCompra[x].getStatus()){
+                        cout << listaCompra[x].toCSV() << endl;
+                    }
+                }
+                cout << endl;
+
+                int cantidadRegistrosProductos = cprod.CantidadRegistros();
+                Producto* listaProductos = new Producto[cantidadRegistrosProductos];
+                cprod.Leer(cantidadRegistrosProductos,listaProductos);
+                for(int x = 0 ; x < cantidadRegistrosProductos ; x++){
+                    if(listaProductos[x].getStatus()){
+                        cout << listaProductos[x].toCSV() << endl;
+                    }
+                }
+                cout << endl;
+
+                int cantidadRegistrosCategoria = ctrlCategorias.CantidadRegistros();
+                CategoriaProducto* listaCategoria = new CategoriaProducto[cantidadRegistrosCategoria];
+                ctrlCategorias.Leer(cantidadRegistrosCategoria,listaCategoria);
+                for(int x = 0 ; x < cantidadRegistrosCategoria ; x++){
+
+                cout << listaCategoria[x].toCSV() << endl;
+                }
+                cout << endl;
+
+                int cantidadRegistrosProveedores = cprov.CantidadRegistros();
+                Proveedor* listaProveedores = new Proveedor[cantidadRegistrosProveedores];
+                cprov.Leer(cantidadRegistrosProveedores,listaProveedores);
+                for(int x = 0 ; x < cantidadRegistrosProveedores ; x++){
+                    if(listaProveedores[x].getStatus()){
+                        cout << listaProveedores[x].toCSV() << endl;
+                    }
+                }
+                cout << endl;
+
+
+
+
+                delete[]listaDetalle;
+                delete[]listaCompra;
+                delete[]listaProductos;
+                delete[]listaCategoria;
+                delete[]listaProveedores;
+
+                */
+
+
                 system("pause");
                 }
                 break;
             case 4:{
                 limpiarPantallaInformes();
-                cout << "INFORME" << endl;
-                system("pause");
+                cout << "\n=====================================================\n";
+                cout << "\n                    INFORME                          \n";
+                cout << "\n=====================================================\n";
+
+                /*
+
+                int cantidadRegistrosDetalle = cdetalle.CantidadRegistros();
+                DetalleCompra* listaDetalle = new DetalleCompra[cantidadRegistrosDetalle];
+                cdetalle.Leer(cantidadRegistrosDetalle,listaDetalle);
+                for(int x = 0 ; x < cantidadRegistrosDetalle ; x++){
+                    cout << listaDetalle[x].toCSV() << endl;
+                }
+                cout << endl;
+
+                int cantidadRegistrosCompras = ccomp.CantidadRegistros();
+                Compra* listaCompra = new Compra[cantidadRegistrosCompras];
+                ccomp.Leer(cantidadRegistrosCompras,listaCompra);
+                for(int x = 0 ; x < cantidadRegistrosCompras ; x++){
+                    if(listaCompra[x].getStatus()){
+                        cout << listaCompra[x].toCSV() << endl;
+                    }
+                }
+                cout << endl;
+
+                int cantidadRegistrosProductos = cprod.CantidadRegistros();
+                Producto* listaProductos = new Producto[cantidadRegistrosProductos];
+                cprod.Leer(cantidadRegistrosProductos,listaProductos);
+                for(int x = 0 ; x < cantidadRegistrosProductos ; x++){
+                    if(listaProductos[x].getStatus()){
+                        cout << listaProductos[x].toCSV() << endl;
+                    }
+                }
+                cout << endl;
+
+                int cantidadRegistrosCategoria = ctrlCategorias.CantidadRegistros();
+                CategoriaProducto* listaCategoria = new CategoriaProducto[cantidadRegistrosCategoria];
+                ctrlCategorias.Leer(cantidadRegistrosCategoria,listaCategoria);
+                for(int x = 0 ; x < cantidadRegistrosCategoria ; x++){
+
+                cout << listaCategoria[x].toCSV() << endl;
+                }
+                cout << endl;
+
+                int cantidadRegistrosProveedores = cprov.CantidadRegistros();
+                Proveedor* listaProveedores = new Proveedor[cantidadRegistrosProveedores];
+                cprov.Leer(cantidadRegistrosProveedores,listaProveedores);
+                for(int x = 0 ; x < cantidadRegistrosProveedores ; x++){
+                    if(listaProveedores[x].getStatus()){
+                        cout << listaProveedores[x].toCSV() << endl;
+                    }
+                }
+                cout << endl;
+
+
+
+
+                delete[]listaDetalle;
+                delete[]listaCompra;
+                delete[]listaProductos;
+                delete[]listaCategoria;
+                delete[]listaProveedores;
+
+                */
+
+
+                system("pause");;
                 }
                 break;
             case 0:{
