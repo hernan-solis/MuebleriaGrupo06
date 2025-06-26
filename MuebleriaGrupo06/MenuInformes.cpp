@@ -22,7 +22,7 @@ void menuInformes(ControladorProveedor &cprov, ControladorCompra &ccomp, Control
         cout << "1. Stock x Categoria - Totales\n";
         cout << "2. Top 3 Proveedores $ Mes Anio (mm aaaa)\n";
         cout << "3. Top 3 Proveedores $ Anual (aaaa)\n";
-        cout << "4. Informe 4\n";
+        cout << "4. Top 3 Productos mas comprados\n";
         cout << "0. Salir\n";
         cout << "Opcion: ";
         cin >> opcionMain;
@@ -307,49 +307,68 @@ void menuInformes(ControladorProveedor &cprov, ControladorCompra &ccomp, Control
             case 4:{
                 limpiarPantallaInformes();
                 cout << "\n=====================================================\n";
-                cout << "\n                    INFORME                          \n";
+                cout << "\n             TOP 3 PRODUCTOS MAS COMPRADOS           \n";
                 cout << "\n=====================================================\n";
 
-
-                /*
-                int cantidadRegistrosDetalle = cdetalle.CantidadRegistros();
+             int cantidadRegistrosDetalle = cdetalle.CantidadRegistros();
                 DetalleCompra* listaDetalle = new DetalleCompra[cantidadRegistrosDetalle];
-                cdetalle.Leer(cantidadRegistrosDetalle,listaDetalle);
-
-
-                int cantidadRegistrosCompras = ccomp.CantidadRegistros();
-                Compra* listaCompra = new Compra[cantidadRegistrosCompras];
-                ccomp.Leer(cantidadRegistrosCompras,listaCompra);
-
+                cdetalle.Leer(cantidadRegistrosDetalle, listaDetalle);
 
                 int cantidadRegistrosProductos = cprod.CantidadRegistros();
                 Producto* listaProductos = new Producto[cantidadRegistrosProductos];
-                cprod.Leer(cantidadRegistrosProductos,listaProductos);
+                cprod.Leer(cantidadRegistrosProductos, listaProductos);
 
+                // Vector de acumuladores por idProducto
+                int* acumuladorCantidad = new int[cantidadRegistrosProductos];
+                for (int i = 0; i < cantidadRegistrosProductos; i++) {
+                    acumuladorCantidad[i] = 0;
+                }
 
-                int cantidadRegistrosCategoria = ctrlCategorias.CantidadRegistros();
-                CategoriaProducto* listaCategoria = new CategoriaProducto[cantidadRegistrosCategoria];
-                ctrlCategorias.Leer(cantidadRegistrosCategoria,listaCategoria);
+                // Acumulamos cantidad por producto
+                for (int i = 0; i < cantidadRegistrosDetalle; i++) {
+                    int idProd = listaDetalle[i].getIdProducto();
+                    for (int j = 0; j < cantidadRegistrosProductos; j++) {
+                        if (listaProductos[j].getIdProducto() == idProd) {
+                            acumuladorCantidad[j] += listaDetalle[i].getCantidad();
+                            break;
+                        }
+                    }
+                }
 
+                // Crear array de índices para ordenar
+                int* indices = new int[cantidadRegistrosProductos];
+                for (int i = 0; i < cantidadRegistrosProductos; i++) {
+                    indices[i] = i;
+                }
 
-                int cantidadRegistrosProveedores = cprov.CantidadRegistros();
-                Proveedor* listaProveedores = new Proveedor[cantidadRegistrosProveedores];
-                cprov.Leer(cantidadRegistrosProveedores,listaProveedores);
+                // Ordenar por cantidad (de mayor a menor)
+                for (int i = 0; i < cantidadRegistrosProductos - 1; i++) {
+                    for (int j = i + 1; j < cantidadRegistrosProductos; j++) {
+                        if (acumuladorCantidad[indices[i]] < acumuladorCantidad[indices[j]]) {
+                            int aux = indices[i];
+                            indices[i] = indices[j];
+                            indices[j] = aux;
+                        }
+                    }
+                }
 
+                cout << "\n--- TOP 3 PRODUCTOS MAS COMPRADOS ---\n" << endl;
+                int mostrados = 0;
+                for (int i = 0; i < cantidadRegistrosProductos && mostrados < 3; i++) {
+                    int idx = indices[i];
+                    if (acumuladorCantidad[idx] > 0 && listaProductos[idx].getStatus()) {
+                        cout << "- " << listaProductos[idx].getNombre()
+                             << " - Cantidad comprada: " << acumuladorCantidad[idx] << endl;
+                        mostrados++;
+                    }
+                }
 
+                delete[] listaDetalle;
+                delete[] listaProductos;
+                delete[] acumuladorCantidad;
+                delete[] indices;
 
-
-
-
-
-
-                delete[]listaDetalle;
-                delete[]listaCompra;
-                delete[]listaProductos;
-                delete[]listaProveedores;
-
-                */
-
+                cout << endl;
                 system("pause");
                 }
                 break;
