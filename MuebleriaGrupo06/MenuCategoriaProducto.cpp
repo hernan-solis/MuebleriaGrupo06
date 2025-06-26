@@ -1,7 +1,9 @@
 #include <iostream>
 #include "ControladorCategoriaProducto.h"
+#include "Menu.h"
 
 void mostrarCategorias(ControladorCategoriaProducto& ctrl) {
+    limpiarPantalla();
     int cant = ctrl.CantidadRegistros();
     if (cant == 0) {
         std::cout << "No hay categorias cargadas.\n";
@@ -18,6 +20,7 @@ void mostrarCategorias(ControladorCategoriaProducto& ctrl) {
 }
 
 void agregarCategoria(ControladorCategoriaProducto& ctrl) {
+    limpiarPantalla();
     std::string nombre;
     std::cout << "Ingrese nombre de la nueva categoria: ";
     std::getline(std::cin, nombre);
@@ -48,6 +51,8 @@ void menuCategorias(ControladorCategoriaProducto& ctrl) {
         std::cout << "Ingrese opcion: ";
         std::cin >> opcion;
         std::cin.ignore();
+
+        limpiarPantalla();
 
         switch (opcion) {
             case 1:
